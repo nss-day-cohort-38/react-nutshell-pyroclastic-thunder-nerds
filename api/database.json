@@ -1,0 +1,53 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "username",
+            "email": "email@email.com",
+            "password": "password"
+        }
+    ],
+    "articles": [
+        {
+            "id": 1,
+            "url": "https://www.google.com",
+            "title": "Title",
+            "synopsis": "Synopsis",
+            "timestamp": "Fri Jun 22 2018 10:54:33",
+            "userId": 1
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "eventName": "event name",
+            "date": "Fri Jun 22 2018 10:54:33",
+            "location": "123 Main St.",
+            "userId": 1
+        }
+    ],
+    "messages": [
+        {
+            "id": 1,
+            "message": "This is a message",
+            "timestamp": "Fri Jun 22 2018 10:54:33",
+            "userId": 1
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "taskName": "task name here",
+            "completionDate": "Fri Jun 22 2018 10:54:33",
+            "isCompleted": false,
+            "userId": 1
+        }
+    ],
+    "friends": [
+        {
+            "id": 1,
+            "loggedInUserId": 1,
+            "userId": 1
+        }
+    ]
+}
