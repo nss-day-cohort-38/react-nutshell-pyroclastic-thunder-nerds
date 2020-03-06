@@ -37,12 +37,13 @@ const EventForm = props => {
                         <label htmlFor="eventName">Event Name</label>
 
                         <input
-                        type="date"
+                        type="datetime-local"
                         required
                         onChange={handleFieldChange}
                         id="date"
                         placeholder="Event Date" />
                         <label>Date</label>
+
                     </div>
                     <div className="newEventButton">
                         <button
