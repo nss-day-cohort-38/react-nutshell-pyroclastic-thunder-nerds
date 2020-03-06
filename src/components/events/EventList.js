@@ -11,6 +11,11 @@ const EventList = props => {
         });
     };
 
+    const deleteEvent = id => {
+        EventManager.delete(id)
+            .then(() => EventManager.getAll().then(setEvents));
+    };
+
     useEffect(() => {
         getEvents();
     }, []);
@@ -26,6 +31,7 @@ const EventList = props => {
                 <EventCard
                     key={event.id}
                     event={event}
+                    deleteEvent={deleteEvent}
                     { ...props }
                 />
             

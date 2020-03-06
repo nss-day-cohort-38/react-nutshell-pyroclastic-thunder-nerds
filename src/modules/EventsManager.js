@@ -12,5 +12,10 @@ export default {
             },
             body: JSON.stringify(newEvent)
         }).then(data => data.json())
+    },
+    delete(id) {
+        return fetch(`${baseURL}/events/${id}`, {
+            method: "DELETE"
+        }).then(response => response.json())
     }
 }
