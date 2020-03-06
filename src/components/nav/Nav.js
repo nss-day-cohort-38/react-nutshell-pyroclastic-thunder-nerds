@@ -8,7 +8,7 @@ const NavBar = props => {
       <nav>
         <ul>
           <li>
-            <Link className="nav-link" to="/home">
+            <Link className="nav-link" to="/">
               Home
             </Link>
           </li>
