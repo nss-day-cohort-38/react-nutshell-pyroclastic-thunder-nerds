@@ -1,11 +1,15 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Login from "./auth/Login"
+
+// TASKS
 import TaskList from "./tasks/TaskList";
 import TaskForm from "./tasks/TaskForm";
 
-// TASKS
-
+//Article imports
+import ArticlesList from "./articles/ArticlesList"
+import ArticlesForm from "./articles/ArticlesForm"
+import ArticleEditForm from "./articles/ArticlesEditForm"
 
 const ApplicationView = (props) => {
 
@@ -26,9 +30,15 @@ const ApplicationView = (props) => {
         {/* <Route path="/events" render={props => {
             return <EventList />
         }}/> */}
-        {/* <Route path="/news" render={props => {
-            return <NewsList />
-        }}/> */}
+        <Route exact path="/articles" render={props => {
+            return <ArticlesList {...props}/>
+        }}/>
+        <Route path="/articles/new" render={props => {
+            return <ArticlesForm {...props}/>
+        }}/>
+        <Route path="/articles/:articleId(\d+)/edit" render={props => {
+            return <ArticleEditForm {...props} />
+        }}/>
         {/* <Route path="/messages" render={props => {
             return <MessageList />
         }}/> */}
