@@ -1,6 +1,8 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Login from "./auth/Login"
+// Messages //
+import MessageList from "./messages/MessageList"
 
 const ApplicationView = (props) => {
 
@@ -24,9 +26,9 @@ const ApplicationView = (props) => {
         {/* <Route path="/news" render={props => {
             return <NewsList />
         }}/> */}
-        {/* <Route path="/messages" render={props => {
-            return <MessageList />
-        }}/> */}
+        <Route path="/messages" render={props => {
+            return <MessageList { ...props }/>
+        }}/>
         {/* <Route path="/tasks" render={props => {
             return <TaskList />
         }}/> */}
