@@ -3,7 +3,7 @@ import NavBar from './components/nav/Nav'
 import ApplicationView from './components/ApplicationViews';
 import './Nutshell.css';
 
-function App() {
+function Nutshell() {
   return (
     <>
       <NavBar />
@@ -12,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default Nutshell;
