@@ -1,5 +1,6 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
+import Login from "./auth/Login"
 
 const ApplicationView = (props) => {
 
@@ -11,9 +12,9 @@ const ApplicationView = (props) => {
         {/* <Route path="/welcome" render={props => {
             return <Welcome />
         }}/> */}
-        {/* <Route path="/login" render={props => {
-            return <Login />
-        }}/> */}
+        <Route path="/login" render={props => {
+            return <Login { ...props } />
+        }}/>
         {/* <Route path="/logout" render={props => {
             return <Logout />
         }}/> */}
