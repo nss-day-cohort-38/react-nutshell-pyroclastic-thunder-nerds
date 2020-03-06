@@ -1,6 +1,9 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Login from "./auth/Login"
+import EventList from "./events/EventList"
+import EventForm from "./events/EventForm"
+import EventEditForm from "./events/EventEditForm"
 //Article imports
 import ArticlesList from "./articles/ArticlesList"
 import ArticlesForm from "./articles/ArticlesForm"
@@ -22,9 +25,16 @@ const ApplicationView = (props) => {
         {/* <Route path="/logout" render={props => {
             return <Logout />
         }}/> */}
-        {/* <Route path="/events" render={props => {
-            return <EventList />
-        }}/> */}
+        <Route exact path="/events" render={props => {
+            return <EventList { ...props }/>
+        }}/>
+        <Route path="/events/new" render={props => {
+            return <EventForm { ...props }/>
+        }}/>
+        <Route path="/events/:eventId(\d+)/edit"
+            render={props => {
+                return <EventEditForm { ...props } />
+            }} />
         <Route exact path="/articles" render={props => {
             return <ArticlesList {...props}/>
         }}/>
