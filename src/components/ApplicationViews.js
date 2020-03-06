@@ -5,9 +5,9 @@ const ApplicationView = (props) => {
 
     return (
         <>
-        <Route exact path="/" render={props => {
+        {/* <Route exact path="/" render={props => {
             return <Home />
-        }}/>
+        }}/> */}
         {/* <Route path="/welcome" render={props => {
             return <Welcome />
         }}/> */}
