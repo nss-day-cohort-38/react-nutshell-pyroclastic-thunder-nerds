@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import ArticleManager from '../../modules/ArticlesManager'
-import "./ArticleForm.css"
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const ArticlesForm = props => {
-    const [article, setArticle] = useState({title: "", synopsis: "", url: ""})
+    const [article, setArticle] = useState({title: "", synopsis: "", url: "", timestamp: ""})
     const [isLoading, setIsLoading] = useState(false)
 
     const handleFieldChange = evt => {
@@ -14,51 +14,61 @@ const ArticlesForm = props => {
 
     const constructNewArticle = evt => {
         evt.preventDefault()
+        
+
         if (article.title === "" || article.synopsis === "" || article.url === "") {
             window.alert("Please fill out all fields")
         } else {
+            const newArticle = {...article}
+            const stamp = new Date()
+            newArticle.timestamp = stamp.toLocaleString()
             setIsLoading(true)
-            ArticleManager.post(article)
+            ArticleManager.post(newArticle)
                 .then(() => props.history.push("/articles"))
         }
     }
 
     return (
         <>
-            <form className="test">
+            <Form className="test">
                 <fieldset>
                     <div>
-                        <label htmlFor="title">Title</label>
-                        <input
+                        <FormGroup>
+                        <Label htmlFor="title">Title</Label>
+                        <Input
                             type="text" required onChange={handleFieldChange}
                             id="title"
                             placeholder="Article Title"
                         />
-                        
-                        <label htmlFor="synopsis">Synopsis</label>
-                        <input 
+                        </FormGroup>
+                        <FormGroup>
+                        <Label htmlFor="synopsis">Synopsis</Label>
+                        <Input 
                             type="text" required onChange={handleFieldChange}
                             id="synopsis"
                             placeholder="Article Synopsis"
                         />
-
-                        <label htmlFor="url">Url</label>
-                        <input 
+                        </FormGroup>
+                        <FormGroup>
+                        <Label htmlFor="url">Url</Label>
+                        <Input 
                             type="text" required onChange={handleFieldChange}
                             id="url"
                             placeholder="Article Url"
                         />
+                        </FormGroup>
                     </div>
                     <div>
-                        <button
+                        <Button
+                        color="primary"
                             type="button"
                             disabled={isLoading}
                             onClick={constructNewArticle}
                         >Submit
-                        </button>
+                        </Button>
                     </div>
                 </fieldset>
-            </form>
+            </Form>
         </>
     )
 }

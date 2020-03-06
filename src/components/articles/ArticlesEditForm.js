@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ArticleManager from '../../modules/ArticlesManager'
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 
 const ArticleEditForm = (props) => {
     const [article, setArticle] = useState({title: "", synopsis: "", url: ""})
@@ -15,11 +16,13 @@ const ArticleEditForm = (props) => {
         evt.preventDefault()
         setIsLoading(true)
 
+        const stamp = new Date()
         const editedArticle = {
             id: props.match.params.articleId,
             title: article.title,
             synopsis: article.synopsis,
-            url: article.url
+            url: article.url,
+            timestamp: stamp.toLocaleString()
         }
 
         ArticleManager.update(editedArticle).then(() => 
@@ -36,43 +39,48 @@ const ArticleEditForm = (props) => {
 
     return (
         <>
-            <form className="test">
+            <Form className="test">
                 <fieldset>
                     <div>
-                        <label htmlFor="title">Title</label>
-                        <input
+                        <FormGroup>
+                        <Label htmlFor="title">Title</Label>
+                        <Input
                             type="text" required onChange={handleFieldChange}
                             id="title"
                             placeholder="Article Title"
                             value={article.title}
                         />
-                        
-                        <label htmlFor="synopsis">Synopsis</label>
-                        <input 
+                        </FormGroup>
+                        <FormGroup>
+                        <Label htmlFor="synopsis">Synopsis</Label>
+                        <Input 
                             type="text" required onChange={handleFieldChange}
                             id="synopsis"
                             placeholder="Article Synopsis"
                             value={article.synopsis}
                         />
-
-                        <label htmlFor="url">Url</label>
-                        <input 
+                        </FormGroup>
+                        <FormGroup>
+                        <Label htmlFor="url">Url</Label>
+                        <Input 
                             type="text" required onChange={handleFieldChange}
                             id="url"
                             placeholder="Article Url"
                             value={article.url}
                         />
+                        </FormGroup>
                     </div>
                     <div>
-                        <button
+                        <Button
+                            color="primary"
                             type="button"
                             disabled={isLoading}
                             onClick={updateExistingArticle}
                         >Submit
-                        </button>
+                        </Button>
                     </div>
                 </fieldset>
-            </form>
+            </Form>
         </>
     )
 }
