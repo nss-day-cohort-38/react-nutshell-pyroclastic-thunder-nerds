@@ -18,6 +18,11 @@ const NavBar = props => {
             </Link>
           </li>
           <li>
+            <Link className="nav-link" to="/tasks">
+              Tasks
+            </Link>
+          </li>
+          <li>
             <Link className="nav-link" to="/events">
               Events
             </Link>

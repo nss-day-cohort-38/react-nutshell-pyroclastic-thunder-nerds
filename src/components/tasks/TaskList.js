@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TasksManager from "../../modules/TasksManager";
+import TaskCard from "./TaskCard";
+import { Link } from "react-router-dom";
 
 const TaskList = props => {
   const [tasks, setTasks] = useState([]);
@@ -14,13 +16,21 @@ const TaskList = props => {
     getTasks();
   }, []);
 
-  tasks.map(task => {
-    return (
-      <div className="taskCardContainer">
-        <TaskCard key={task.id} task={task} />
+  return (
+    <React.Fragment>
+      <div className="taskSectionContainer">
+        <div className="taskButtonContainer">
+          <Link to="/tasks/new">
+            <button type="button">Create a Task</button>
+          </Link>
+        </div>
+        <div className="taskCardContainer">
+          {tasks.map(task => (
+            <TaskCard key={task.id} task={task} />
+          ))}
+        </div>
       </div>
-    );
-  });
+    </React.Fragment>
+  );
 };
-
 export default TaskList;

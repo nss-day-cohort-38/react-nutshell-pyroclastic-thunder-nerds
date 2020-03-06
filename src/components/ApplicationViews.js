@@ -2,6 +2,7 @@ import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Login from "./auth/Login"
 import TaskList from "./tasks/TaskList";
+import TaskForm from "./tasks/TaskForm";
 
 // TASKS
 
@@ -31,8 +32,13 @@ const ApplicationView = (props) => {
         {/* <Route path="/messages" render={props => {
             return <MessageList />
         }}/> */}
-        <Route path="/tasks" render={props => {
+
+        {/* Tasks */}
+        <Route exact path="/tasks" render={props => {
             return <TaskList />
+        }}/>
+        <Route path="/tasks/new" render={props => {
+            return <TaskForm {...props} />
         }}/>
         {/* <Route path="/friends" render={props => {
             return <FriendList />
