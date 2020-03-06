@@ -4,6 +4,10 @@ import Login from "./auth/Login"
 import EventList from "./events/EventList"
 import EventForm from "./events/EventForm"
 import EventEditForm from "./events/EventEditForm"
+//Article imports
+import ArticlesList from "./articles/ArticlesList"
+import ArticlesForm from "./articles/ArticlesForm"
+import ArticleEditForm from "./articles/ArticlesEditForm"
 
 const ApplicationView = (props) => {
 
@@ -31,9 +35,15 @@ const ApplicationView = (props) => {
             render={props => {
                 return <EventEditForm { ...props } />
             }} />
-        {/* <Route path="/news" render={props => {
-            return <NewsList />
-        }}/> */}
+        <Route exact path="/articles" render={props => {
+            return <ArticlesList {...props}/>
+        }}/>
+        <Route path="/articles/new" render={props => {
+            return <ArticlesForm {...props}/>
+        }}/>
+        <Route path="/articles/:articleId(\d+)/edit" render={props => {
+            return <ArticleEditForm {...props} />
+        }}/>
         {/* <Route path="/messages" render={props => {
             return <MessageList />
         }}/> */}
