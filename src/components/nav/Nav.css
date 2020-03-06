@@ -1,0 +1,17 @@
+header {
+    background-color: gainsboro;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+nav li {
+    padding: 10px;
+    text-align: center;
+    list-style-type: none;
+    flex: 1;
+}
