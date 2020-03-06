@@ -17,5 +17,17 @@ export default {
         return fetch(`${baseURL}/events/${id}`, {
             method: "DELETE"
         }).then(response => response.json())
+    },
+    update(editedEvent) {
+        return fetch(`${baseURL}/events/${editedEvent.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editedEvent)
+        }).then(data => data.json())
+    },
+    get(id) {
+        return fetch(`${baseURL}/events/${id}`).then(result => result.json())
     }
 }

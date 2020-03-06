@@ -3,6 +3,7 @@ import React from "react";
 import Login from "./auth/Login"
 import EventList from "./events/EventList"
 import EventForm from "./events/EventForm"
+import EventEditForm from "./events/EventEditForm"
 
 const ApplicationView = (props) => {
 
@@ -26,6 +27,10 @@ const ApplicationView = (props) => {
         <Route path="/events/new" render={props => {
             return <EventForm { ...props }/>
         }}/>
+        <Route path="/events/:eventId(\d+)/edit"
+            render={props => {
+                return <EventEditForm { ...props } />
+            }} />
         {/* <Route path="/news" render={props => {
             return <NewsList />
         }}/> */}
