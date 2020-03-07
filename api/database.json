@@ -37,19 +37,18 @@
   "tasks": [
     {
       "id": 1,
-      "taskName": "task name here",
-      "completionDate": "Fri Jun 22 2018 10:54:33",
-      "isCompleted": false,
-      "userId": 1
-    },
-    {
-      "taskName": "Do Dishes",
+      "taskName": "Wash Dishes",
       "completionDate": "2020-03-07",
-      "isCompleted": false,
-      "id": 2
+      "isCompleted": false
     },
     {
+      "id": 2,
       "taskName": "Walk Dog",
+      "completionDate": "2020-03-07",
+      "isCompleted": false
+    },
+    {
+      "taskName": "Walk the Cat",
       "completionDate": "2020-03-07",
       "isCompleted": false,
       "id": 3

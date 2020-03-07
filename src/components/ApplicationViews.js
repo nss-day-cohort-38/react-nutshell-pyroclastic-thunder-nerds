@@ -13,6 +13,7 @@ import EventEditForm from "./events/EventEditForm"
 import ArticlesList from "./articles/ArticlesList"
 import ArticlesForm from "./articles/ArticlesForm"
 import ArticleEditForm from "./articles/ArticlesEditForm"
+import TaskEditForm from "./tasks/TaskEditForm";
 
 const ApplicationView = (props) => {
 
@@ -54,11 +55,16 @@ const ApplicationView = (props) => {
         }}/> */}
 
         {/* Tasks */}
+        {/* TODO: Add edit and details */}
+        {/* one thing you could do for a 'details' component is show which person created the task when details btn is clicked */}
         <Route exact path="/tasks" render={props => {
             return <TaskList />
         }}/>
         <Route path="/tasks/new" render={props => {
             return <TaskForm {...props} />
+        }}/>
+        <Route path="/tasks/:taskId(\d+)/edit" render={props => {
+            return <TaskEditForm {...props} />
         }}/>
         {/* <Route path="/friends" render={props => {
             return <FriendList />
