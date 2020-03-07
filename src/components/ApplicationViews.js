@@ -3,6 +3,14 @@ import React from "react";
 import Login from "./auth/Login"
 // Messages //
 import MessageList from "./messages/MessageList"
+// Events //
+import EventList from "./events/EventList"
+import EventForm from "./events/EventForm"
+import EventEditForm from "./events/EventEditForm"
+//Article imports
+import ArticlesList from "./articles/ArticlesList"
+import ArticlesForm from "./articles/ArticlesForm"
+import ArticleEditForm from "./articles/ArticlesEditForm"
 
 const ApplicationView = (props) => {
 
@@ -20,15 +28,31 @@ const ApplicationView = (props) => {
         {/* <Route path="/logout" render={props => {
             return <Logout />
         }}/> */}
-        {/* <Route path="/events" render={props => {
-            return <EventList />
-        }}/> */}
-        {/* <Route path="/news" render={props => {
-            return <NewsList />
-        }}/> */}
         <Route path="/messages" render={props => {
             return <MessageList { ...props }/>
         }}/>
+        <Route exact path="/events" render={props => {
+            return <EventList { ...props }/>
+        }}/>
+        <Route path="/events/new" render={props => {
+            return <EventForm { ...props }/>
+        }}/>
+        <Route path="/events/:eventId(\d+)/edit"
+            render={props => {
+                return <EventEditForm { ...props } />
+            }} />
+        <Route exact path="/articles" render={props => {
+            return <ArticlesList {...props}/>
+        }}/>
+        <Route path="/articles/new" render={props => {
+            return <ArticlesForm {...props}/>
+        }}/>
+        <Route path="/articles/:articleId(\d+)/edit" render={props => {
+            return <ArticleEditForm {...props} />
+        }}/>
+        {/* <Route path="/messages" render={props => {
+            return <MessageList />
+        }}/> */}
         {/* <Route path="/tasks" render={props => {
             return <TaskList />
         }}/> */}
