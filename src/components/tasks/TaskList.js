@@ -24,7 +24,7 @@ const TaskList = props => {
             <button type="button">Create a Task</button>
           </Link>
         </div>
-        <div className="taskCardContainer">
+        <div className="taskContainer">
           {tasks.map(task => (
             <TaskCard key={task.id} task={task} />
           ))}

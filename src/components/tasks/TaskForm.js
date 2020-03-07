@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TasksManager from "../../modules/TasksManager";
 
 const TaskForm = props => {
+  // Setting Initial State
   const [task, setTask] = useState({
     taskName: "",
     completionDate: "",
@@ -9,20 +10,21 @@ const TaskForm = props => {
   });
   const [isLoading, setIsLoading] = useState(false);
 
+  // Updating State realtime with input field changes
   const handleFieldChange = evt => {
-    console.log(task);
     const stateToChange = { ...task };
     stateToChange[evt.target.id] = evt.target.value;
     setTask(stateToChange);
   };
 
-  const handleCompletedRadioBtn = evt => {
+  // Changing isCompleted boolean property in state when checkbox clicked
+  const handleCompletedBtn = evt => {
     const stateToChange = { ...task };
     stateToChange[evt.target.id] = !task.isCompleted;
-    console.log(stateToChange);
     setTask(stateToChange);
   };
 
+  // When submit button clicked this will save new state object to api & then redirect user to TaskList
   const constructNewLocation = evt => {
     evt.preventDefault();
     if (
@@ -51,16 +53,16 @@ const TaskForm = props => {
             ></input>
             <label htmlFor="taskDate">Expected Completion Date</label>
             <input
-              type="text"
+              type="date"
               onChange={handleFieldChange}
               id="completionDate"
-              placeholder="Completion Date"
+              // placeholder="Completion Date"
             ></input>
             <label htmlFor="trueButton">Complete</label>
             <input
               type="checkbox"
               id="isCompleted"
-              onClick={handleCompletedRadioBtn}
+              onClick={handleCompletedBtn}
             ></input>
 
             <button disabled={isLoading} onClick={constructNewLocation}>

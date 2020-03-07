@@ -1,0 +1,8 @@
+.taskCardContainer {
+    border-bottom: 2px solid gray;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+.taskCardContainer p {
+    font-size: 1.2em;
+}
