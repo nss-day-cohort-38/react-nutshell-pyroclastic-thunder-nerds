@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
-import {Card, CardText, CardBody, CardTitle, Button } from 'reactstrap'
+import {Card, CardBody, CardTitle, Button } from 'reactstrap'
 import './ArticlesCard.css'
 
 const ArticleCard = props => {
@@ -12,18 +11,18 @@ const ArticleCard = props => {
                     <p><strong>Synopsis: </strong>{props.article.synopsis}</p>
                     <p><strong>Url: </strong>{props.article.url}</p>
                     <p><strong>{props.article.timestamp}</strong></p>
-                    <Button color="danger" type="button" onClick={() => 
-                        props.deleteArticle(props.article.id)}>
-                        Delete Article
+                    <Button color="info" type="button" onClick={() => {
+                        props.history.push(`/articles/${props.article.id}`)
+                    }}>
+                        Details
                     </Button>
                     <Button className="padding2" color="success" type="button" onClick={() => {
                         props.history.push(`/articles/${props.article.id}/edit`)}}>
                         Edit Article
                     </Button>
-                    <Button className="padding2" color="info" type="button" onClick={() => {
-                        props.history.push(`/articles/${props.article.id}`)
-                    }}>
-                        Details
+                    <Button className="padding2" color="danger" type="button" onClick={() => 
+                        props.deleteArticle(props.article.id)}>
+                        Delete Article
                     </Button>
                 </CardBody>
             </Card>
