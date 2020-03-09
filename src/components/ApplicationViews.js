@@ -8,6 +8,7 @@ import EventEditForm from "./events/EventEditForm"
 import ArticlesList from "./articles/ArticlesList"
 import ArticlesForm from "./articles/ArticlesForm"
 import ArticleEditForm from "./articles/ArticlesEditForm"
+import ArticleDetail from "./articles/ArticlesDetail"
 
 const ApplicationView = (props) => {
 
@@ -43,6 +44,9 @@ const ApplicationView = (props) => {
         }}/>
         <Route path="/articles/:articleId(\d+)/edit" render={props => {
             return <ArticleEditForm {...props} />
+        }}/>
+        <Route exact path="/articles/:articleId(\d+)" render={props => {
+            return <ArticleDetail articleId={parseInt(props.match.params.articleId)} {...props} />
         }}/>
         {/* <Route path="/messages" render={props => {
             return <MessageList />

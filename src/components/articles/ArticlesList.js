@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import ArticleCard from "./ArticlesCard"
 import ArticleManager from "../../modules/ArticlesManager"
 import { Button } from 'reactstrap'
+import './ArticlesList.css'
 
 const ArticleList = (props) => {
     const [articles, setArticles] = useState([])
@@ -24,8 +25,8 @@ const ArticleList = (props) => {
 
     return (
         <>
-            <section>
-                <Button color="primary" type="button" className="btn" onClick={() => {
+            <section className="flex">
+                <Button color="primary" type="button" className="btn1" onClick={() => {
                     props.history.push("articles/new")
                 }}>Add New Article
                 </Button>
