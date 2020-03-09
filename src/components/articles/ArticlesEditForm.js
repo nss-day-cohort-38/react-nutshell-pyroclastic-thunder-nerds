@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ArticleManager from "../../modules/ArticlesManager";
-import { Button, Form, FormGroup, Label, Input, FormText, Card, CardBody } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Card, CardBody } from "reactstrap";
 import './ArticlesCard.css'
 
 const ArticleEditForm = props => {
