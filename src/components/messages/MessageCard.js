@@ -3,8 +3,8 @@ import "./Message.css";
 
 const MessageCard = (props) => {
     return (
-        <div className="card">
-      <div className="card-content">
+        <div className="message-card">
+      <div className="message-card-content">
         <h3>Message: <span className="card-message">
             {props.message.message}
         </span></h3>

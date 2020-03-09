@@ -1,4 +1,4 @@
-/* .card {
+.message-card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px;
@@ -7,18 +7,18 @@
     flex: 0 1 24%;
   }
   
-  .card-content {
+  .message-card-content {
     padding: .5em;
   }
   
-  .card-content h3 {
+  .message-card-content h3 {
     margin-top: 0;
     margin-bottom: .5em;
     font-weight: bold;
     color: rgb(43, 112, 241);
   }
   
-  .card-content p {
+  .message-card-content p {
     font-size: 80%;
     color: darkslategrey;
   }
@@ -27,7 +27,7 @@
     color: darkslategrey;
   }
   
-  .card button {
+  .message-card  button {
     background-color: cornflowerblue;
     border: none;
     color: cornsilk;
@@ -41,6 +41,20 @@
     width: 100%;
   }
   
-  .card button:hover {
+  .message-card  button:hover {
     background-color: darkblue;
-  } */
+  }
+
+  .padding2 {
+    margin: 0 0 0 10px;
+}
+
+.message-card {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.width {
+    width: 80%;
+}
