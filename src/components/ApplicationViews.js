@@ -5,6 +5,7 @@ import Login from "./auth/Login"
 // Tasks
 import TaskList from "./tasks/TaskList";
 import TaskForm from "./tasks/TaskForm";
+import TaskEditForm from "./tasks/TaskEditForm";
 // Events
 import EventList from "./events/EventList"
 import EventForm from "./events/EventForm"
@@ -13,7 +14,7 @@ import EventEditForm from "./events/EventEditForm"
 import ArticlesList from "./articles/ArticlesList"
 import ArticlesForm from "./articles/ArticlesForm"
 import ArticleEditForm from "./articles/ArticlesEditForm"
-import TaskEditForm from "./tasks/TaskEditForm";
+import ArticleDetail from "./articles/ArticlesDetail"
 
 const ApplicationView = (props) => {
 
@@ -49,6 +50,9 @@ const ApplicationView = (props) => {
         }}/>
         <Route path="/articles/:articleId(\d+)/edit" render={props => {
             return <ArticleEditForm {...props} />
+        }}/>
+        <Route exact path="/articles/:articleId(\d+)" render={props => {
+            return <ArticleDetail articleId={parseInt(props.match.params.articleId)} {...props} />
         }}/>
         {/* <Route path="/messages" render={props => {
             return <MessageList />

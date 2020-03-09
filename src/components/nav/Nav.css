@@ -1,5 +1,8 @@
 header {
-    background-color: gainsboro;
+    background-color: #333;
+    font-size: larger;
+    font-weight: 500;
+    
 }
 
 nav ul {
@@ -15,3 +18,13 @@ nav li {
     list-style-type: none;
     flex: 1;
 } 
+
+.nav-link {
+    color: #007cff;
+}
+
+.nav-link:hover {
+    color: rgb(191, 39, 39);
+    text-shadow: 1px 1px 10px red;
+}
+
