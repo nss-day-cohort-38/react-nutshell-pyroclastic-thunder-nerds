@@ -27,7 +27,7 @@ const Login = (props) => {
                         "credentials", 
                         JSON.stringify(credentials)
                     )
-                    props.history.push("/articles")
+                    props.history.push("/home")
                 } else {
                     window.alert("Invalid email")
                 }
