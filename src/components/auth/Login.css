@@ -1,0 +1,16 @@
+.margin {
+    margin: 10px 0 0 0;
+}
+
+.padding {
+    width: 50%;
+}
+
+.width {
+    padding: 0 15px 10px 15px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
