@@ -15,7 +15,7 @@ const EventForm = props => {
 
     const constructNewEvent = evt => {
         evt.preventDefault();
-        if (event.eventName === "" || event.date === "" || event.eventLocation) {
+        if (event.eventName === "" || event.date === "" || event.eventLocation === "" ) {
             window.alert("Please fill in all fields.");
         } else {
             setIsLoading(true);
