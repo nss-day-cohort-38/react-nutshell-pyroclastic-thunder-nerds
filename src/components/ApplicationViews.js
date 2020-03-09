@@ -1,6 +1,5 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
-import Login from "./auth/Login"
 
 // Tasks
 import TaskList from "./tasks/TaskList";
@@ -15,22 +14,25 @@ import ArticlesList from "./articles/ArticlesList"
 import ArticlesForm from "./articles/ArticlesForm"
 import ArticleEditForm from "./articles/ArticlesEditForm"
 import ArticleDetail from "./articles/ArticlesDetail"
+// Register & Login
+import Register from "./auth/Register"
+import Login from "./auth/Login"
 
 const ApplicationView = (props) => {
 
     return (
         <>
-        {/* <Route exact path="/" render={props => {
+        {/* <Route exact path="/home" render={props => {
             return <Home />
-        }}/> */}
-        {/* <Route path="/welcome" render={props => {
-            return <Welcome />
         }}/> */}
         <Route path="/login" render={props => {
             return <Login { ...props } />
         }}/>
+        <Route path="/register" render={props => {
+            return <Register {...props} />
+        }}/>
         {/* <Route path="/logout" render={props => {
-            return <Logout />
+            return <Welcome />
         }}/> */}
         <Route exact path="/events" render={props => {
             return <EventList { ...props }/>
