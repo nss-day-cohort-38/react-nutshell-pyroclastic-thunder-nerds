@@ -27,21 +27,14 @@ const TaskEditForm = props => {
 
   // will run the fetch PUT on submit btn click
   const updateExistingTask = evt => {
-    // evt.preventDefault();
     setIsLoading(true);
 
-    // updated obj that will get PUT into api
-    const editedLocation = {
-      id: props.match.params.taskId,
-      taskName: task.taskName,
-      completionDate: task.completionDate,
-      isCompleted: task.isCompleted
-    };
-
-    TasksManager.update(editedLocation, props.match.params.taskId);
+    TasksManager.update(task, props.match.params.taskId).then(
+      setIsLoading(false)
+    );
   };
 
-  // this runs first when page renders which will repopulate user interface w/ existing state vals to edit
+  // this runs first when page renders which will * help * repopulate user interface w/ existing state vals to edit
   useEffect(() => {
     TasksManager.get(props.match.params.taskId).then(task => {
       setTask(task);
