@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import MessageManager from './MessageManager';
-import Moment from 'react-moment';
-import 'moment-timezone';
-import './MessageForm.css'
+import MessageManager from '../../modules/MessagesManager';
+// import './MessageForm.css'
 
 const MessageForm = props => {
   const [message, setMessage] = useState({ message: "" });
@@ -45,8 +43,7 @@ const MessageForm = props => {
               id="message"
               placeholder="Message..."
             />
-            {/* <label htmlFor="message">Name</label> */}
-            <Timestamp date={Date} />
+            {/* <Timestamp date={Date} /> */}
           </div>
           
           <div className="alignRight">

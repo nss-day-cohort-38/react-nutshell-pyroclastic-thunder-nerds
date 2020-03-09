@@ -8,7 +8,7 @@ const MessageCard = (props) => {
         <h3>Message: <span className="card-message">
             {props.message.message}
         </span></h3>
-        {/* <p>Timestamp: {props.message.timestamp}</p> */}
+        <p>Timestamp: {props.message.timestamp}</p>
         
         <button type="button" onClick={() => 
         props.history.push(`/messages/${props.message.id}/edit`)}>

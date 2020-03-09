@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'; 
 import MessageCard from './MessageCard';
 import MessageManager from '../../modules/MessagesManager';
+import '../messages/MessageList.css'
 
 const MessageList = (props) => {
     const [messages, setMessages] = useState([]);
+    console.log("messages", messages);
     
 
     const getMessages = () => {
@@ -20,9 +22,9 @@ const MessageList = (props) => {
   useEffect(() => {
     getMessages();
   }, []);
-
+  
   return (
-  <>
+    <>
     <section className="section-content">
       <button type="button"
       className="btn"
@@ -31,14 +33,15 @@ const MessageList = (props) => {
       </button>
     </section>
     
-    <div className="container-cards">
+    <div className="message-container-cards">
       {messages.map(message =>
         <MessageCard
-          key={message.id}
-          message={message}
-          deleteMessage={deleteMessage}
-          {...props}
-          />)}
+        key={message.id}
+        message={message}
+        deleteMessage={deleteMessage}
+        {...props}
+        />)}
+        
     </div>
   </>
   );

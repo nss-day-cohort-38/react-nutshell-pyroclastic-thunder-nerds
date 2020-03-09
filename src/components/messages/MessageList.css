@@ -1,0 +1,4 @@
+.message-container-cards {
+    display: flex;
+    flex-direction: column-reverse;
+}
