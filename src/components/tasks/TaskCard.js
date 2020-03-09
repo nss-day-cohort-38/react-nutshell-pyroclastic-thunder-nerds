@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Tasks.css";
 import TasksManager from "../../modules/TasksManager";
+import { Button, Card, CardBody } from "reactstrap";
 
 const TaskCard = props => {
   const [task, setTask] = useState({
@@ -26,23 +27,46 @@ const TaskCard = props => {
   };
 
   return (
-    <div className="taskCardContainer">
-      <h4>Task Name:</h4>
-      <p>{props.task.taskName}</p>
-      <h4>Expected Completion Date:</h4>
-      <p>{props.task.completionDate}</p>
-      <h4>Completed</h4>
-      <input
-        type="checkbox"
-        id="isCompleted"
-        onClick={handleCompletedButton}
-      ></input>
-      <Link to={`tasks/${props.task.id}/edit`}>
-        <button>Edit Task</button>
-      </Link>
-      <button type="button" onClick={() => props.deleteTask(props.task.id)}>
-        Delete Task
-      </button>
+    <div className="taskCardContainer flex">
+      <Card
+        className="width"
+        inverse
+        style={{
+          backgroundColor: "#333",
+          border: "2px solid black"
+        }}
+      >
+        <CardBody>
+          <Link className="taskName" to={`tasks/${props.task.id}/edit`}>
+            <p>
+              <strong>Task Name:</strong>
+            </p>
+          </Link>
+          <p>{props.task.taskName}</p>
+          <p>
+            <strong>Expected Completion Date:</strong>
+          </p>
+          <p>{props.task.completionDate}</p>
+          <p className="checkbox">
+            <strong>Completed</strong>
+          </p>
+          <input
+            type="checkbox"
+            id="isCompleted"
+            className="checkbox"
+            onClick={handleCompletedButton}
+          ></input>
+          <br />
+          <Button
+            type="button"
+            className="padding2"
+            color="danger"
+            onClick={() => props.deleteTask(props.task.id)}
+          >
+            Delete Task
+          </Button>
+        </CardBody>
+      </Card>
     </div>
   );
 };

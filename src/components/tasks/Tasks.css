@@ -1,8 +1,28 @@
 .taskCardContainer {
-    border-bottom: 2px solid gray;
     margin-bottom: 20px;
     padding-bottom: 10px;
 }
-.taskCardContainer p {
-    font-size: 1.2em;
+.width {
+    width: 80%;
+}
+.flex {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+.padding2 {
+    margin: 0 0 0 10px;
+}
+.checkbox {
+    display: inline-block;
+    padding-right: 10px;
+}
+.checkbox--complete {
+    margin-right: 30px;
+}
+.taskName:hover {
+    text-decoration: none;
+}
+.taskName {
+    color: #fafafa;
 }

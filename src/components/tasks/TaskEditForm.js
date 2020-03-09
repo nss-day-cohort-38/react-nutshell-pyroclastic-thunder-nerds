@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Card, CardBody, FormGroup, Label, Input, Button } from "reactstrap";
 import TasksManager from "../../modules/TasksManager";
+import "./Tasks.css"
 
 // TODO: Figure out what to do about updating the userId FK
 const TaskEditForm = props => {
@@ -44,36 +46,62 @@ const TaskEditForm = props => {
 
   return (
     <>
-      <form>
-        <fieldset>
-          <div className="editTaskFormContainer">
-            <label htmlFor="taskName">Task Name</label>
-            <input
-              type="text"
-              onChange={handleFieldChange}
-              id="taskName"
-              value={task.taskName}
-            ></input>
-            <label htmlFor="taskDate">Expected Completion Date</label>
-            <input
-              type="date"
-              onChange={handleFieldChange}
-              id="completionDate"
-              value={task.completionDate}
-            ></input>
-            <label htmlFor="trueButton">Complete</label>
-            <input
-              type="checkbox"
-              id="isCompleted"
-              onClick={handleCompletedBtn}
-            ></input>
-
-            <button disabled={isLoading} onClick={updateExistingTask}>
-              Submit
-            </button>
-          </div>
-        </fieldset>
-      </form>
+      <div className="flex">
+        <Card
+          className="width"
+          inverse
+          style={{
+            backgroundColor: "#333",
+            borderColor: "green",
+            border: "2px solid black"
+          }}
+        >
+          <CardBody>
+            <form>
+              <fieldset>
+                <div className="editTaskFormContainer">
+                  <FormGroup>
+                    <Label htmlFor="taskName">Task Name</Label>
+                    <Input
+                      type="text"
+                      onChange={handleFieldChange}
+                      id="taskName"
+                      value={task.taskName}
+                    ></Input>
+                  </FormGroup>
+                  <FormGroup>
+                    <Label htmlFor="taskDate">Expected Completion Date</Label>
+                    <Input
+                      type="date"
+                      onChange={handleFieldChange}
+                      id="completionDate"
+                      value={task.completionDate}
+                    ></Input>
+                  </FormGroup>
+                  <FormGroup>
+                    <Label htmlFor="trueButton" className="checkbox--complete">Complete</Label>
+                    <Input
+                      className="checkbox"
+                      type="checkbox"
+                      id="isCompleted"
+                      onClick={handleCompletedBtn}
+                    ></Input>
+                  </FormGroup>
+                  <Button
+                    type="button"
+                    disabled={isLoading}
+                    onClick={updateExistingTask}
+                    color="success"
+                    className="padding2"
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </fieldset>
+            </form>
+          </CardBody>
+        </Card>
+      </div>
     </>
   );
 };

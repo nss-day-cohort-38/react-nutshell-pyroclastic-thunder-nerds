@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import TasksManager from "../../modules/TasksManager";
 import TaskCard from "./TaskCard";
 import { Link } from "react-router-dom";
+import {Button} from "reactstrap"
 
 const TaskList = props => {
   const [tasks, setTasks] = useState([]);
@@ -26,7 +27,7 @@ const TaskList = props => {
       <div className="taskSectionContainer">
         <div className="taskButtonContainer">
           <Link to="/tasks/new">
-            <button type="button">Create a Task</button>
+            <Button type="button" color="primary">Create a Task</Button>
           </Link>
         </div>
         <div className="taskContainer">
