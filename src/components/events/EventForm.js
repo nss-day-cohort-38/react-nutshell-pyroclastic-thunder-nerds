@@ -4,7 +4,7 @@ import "./Event.css";
 import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
 
 const EventForm = props => {
-    const [event, setEvent] = useState({ eventName: "", date: "", eventLocation: "" });
+    const [event, setEvent] = useState({ eventName: "", date: "", eventLocation: "", parsedDate: "" });
     const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
@@ -19,6 +19,7 @@ const EventForm = props => {
             window.alert("Please fill in all fields.");
         } else {
             setIsLoading(true);
+            event.parsedDate = Date.parse(event.date)
             EventManager.post(event)
                 .then(() => props.history.push("/events"));
         }

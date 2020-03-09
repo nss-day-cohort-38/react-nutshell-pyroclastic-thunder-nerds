@@ -1,19 +1,22 @@
 import React from "react";
 import "./Event.css";
 import {Card, CardText, CardBody, CardTitle, Button } from 'reactstrap';
+import Moment from "react-moment";
 
 
 const EventCard = props => {
-// const eventDate = <Moment format="MM/DD/YYYY">{props.event.date}</Moment>
 const eventDate = props.event.date
-const displayDate = Date.parse(eventDate)
+const eventTime = props.event.date
+
     return (
         <div className="flex">
             <Card className="width" inverse style={{backgroundColor: '#333', borderColor: 'green', border: '2px solid black'}}>
             <CardBody>
             <div className="eventCard-content">
                 <CardTitle><h3>{props.event.eventName}</h3></CardTitle>
-                <CardText>{displayDate}</CardText>
+                <CardText><Moment format="MM/DD/YYYY">{eventDate}</Moment></CardText>
+                <CardText><Moment format="HH:mm">{eventTime}</Moment></CardText>
+                <CardText>{props.event.eventLocation}</CardText>
                 <Button color="success" className="padding2" type="button"
                 onClick={() => props.history.push(`/events/${props.event.id}/edit`)}>Edit</Button>
                 <Button color="danger" className="padding2" type="button"

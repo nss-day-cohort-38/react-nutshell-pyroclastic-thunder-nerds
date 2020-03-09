@@ -7,7 +7,6 @@ import { Button } from 'reactstrap'
 
 const EventList = props => {
     const [events, setEvents] = useState([]);
-    const [sortedEvents, setSortedEvents] = useState([]);
 
     const getEvents = () => {
         return EventManager.getAll().then(apiEvents => {
@@ -19,12 +18,14 @@ const EventList = props => {
         EventManager.delete(id)
             .then(() => EventManager.getAll().then(setEvents));
     };
+ 
+        useEffect(() => {
+            getEvents();
+        }, []);
 
-    useEffect(() => {
-        getEvents();
-    }, []);
-
-    
+    const sortedEvents = events.sort(function (a, b) {
+        return a.parsedDate - b.parsedDate
+    })
 
     return (
         <>
@@ -33,7 +34,7 @@ const EventList = props => {
         </section>
 
         <div className="event-cards-container">
-            {events.map(event =>
+            {sortedEvents.map(event =>
                 <EventCard
                     key={event.id}
                     event={event}
