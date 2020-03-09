@@ -1,9 +1,6 @@
 import React from "react";
 import "./Event.css";
-import { Link } from "react-router-dom";
 import {Card, CardText, CardBody, CardTitle, Button } from 'reactstrap';
-import { Moment } from "moment";
-import EventsManager from "../../modules/EventsManager";
 
 
 const EventCard = props => {
