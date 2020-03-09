@@ -6,7 +6,6 @@ import './ArticlesCard.css'
 const ArticleDetail = props => {
   const [article, setArticle] = useState({title: "",synopsis: "",url: "",timestamp: ""});
   const [isLoading, setIsLoading] = useState(true);
-  console.log(props.articleId)
 
   const handleDelete = () => {
     setIsLoading(true);

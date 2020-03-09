@@ -3,6 +3,8 @@ import {Card, Button, Label, Input } from 'reactstrap'
 import "./Login.css"
 import { Link } from "react-router-dom"
 import RegisterManager from "../../modules/RegisterManager"
+import LoginManager from "../../modules/LoginManager"
+import Login from "./Login"
 
 const Register = (props) => {
     const [credentials, setCredentials] = useState({email: "", password: "", confirmPassword: ""})
@@ -23,16 +25,25 @@ const Register = (props) => {
         } else if (credentials.password !== credentials.confirmPassword) {
             window.alert("Passwords do not match.")
         } else {
-            const newUser = {...credentials}
-            setIsLoading(true)
-            sessionStorage.setItem(
-                "credentials", 
-                JSON.stringify(credentials)
-            )
-            props.history.push("/articles")
-
-            RegisterManager.post(newUser)
-            .then(() => props.history.push("/home"))
+            LoginManager.getAll().then(users => {
+                if (users.some(user => user.email === credentials.email)) {
+                    window.alert("This email already exists.")
+                } else {
+                const newUser = {
+                    email: credentials.email,
+                    password: credentials.password
+                }
+                setIsLoading(true)
+                sessionStorage.setItem(
+                    "credentials", 
+                    JSON.stringify(credentials)
+                )
+                props.history.push("/home")
+    
+                RegisterManager.post(newUser)
+                .then(() => props.history.push("/home"))
+                }
+            })    
         }
     }
 
@@ -61,7 +72,7 @@ const Register = (props) => {
         </form>
         </Card>
         </div>
-        <Link className="center" to="/register">Don't have an account? Register here.</Link>
+        <Link className="center" to="/login">Already have an account? Login here.</Link>
        </>
     )
 }

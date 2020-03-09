@@ -23,7 +23,6 @@ const Login = (props) => {
         } else {
             LoginManager.getAll().then(users => {
                 if (users.some(user => user.email === credentials.email)) {
-                    console.log("it worked")
                     sessionStorage.setItem(
                         "credentials", 
                         JSON.stringify(credentials)
