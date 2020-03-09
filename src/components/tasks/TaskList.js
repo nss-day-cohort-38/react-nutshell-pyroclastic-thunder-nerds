@@ -9,7 +9,7 @@ const TaskList = props => {
 
   // gets all tasks and adds them to 'tasks' array as updated state
   const getTasks = () => {
-    TasksManager.getAll().then(tasks => setTasks(tasks));
+    TasksManager.getAll().then(tasks => setTasks(tasks))
   };
 
   const deleteTask = id => {

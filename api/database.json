@@ -36,16 +36,16 @@
   ],
   "tasks": [
     {
-      "id": 1,
       "taskName": "WASH DISHES",
       "completionDate": "2020-03-09",
-      "isCompleted": false
+      "isCompleted": false,
+      "id": 1
     },
     {
-      "id": 2,
       "taskName": "Walk Dog",
       "completionDate": "2020-03-07",
-      "isCompleted": false
+      "isCompleted": false,
+      "id": 2
     },
     {
       "taskName": "Try to Walk the Cat...",

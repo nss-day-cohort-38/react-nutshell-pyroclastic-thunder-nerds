@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Card, CardBody, FormGroup, Label, Input, Button } from "reactstrap";
 import TasksManager from "../../modules/TasksManager";
+import "./Tasks.css"
 
 const TaskForm = props => {
   // Setting Initial State
@@ -41,36 +43,52 @@ const TaskForm = props => {
 
   return (
     <>
-      <form>
-        <fieldset>
-          <div className="createTaskFormContainer">
-            <label htmlFor="taskName">Task Name</label>
-            <input
-              type="text"
-              onChange={handleFieldChange}
-              id="taskName"
-              placeholder="Task Name"
-            ></input>
-            <label htmlFor="taskDate">Expected Completion Date</label>
-            <input
-              type="date"
-              onChange={handleFieldChange}
-              id="completionDate"
-              // placeholder="Completion Date"
-            ></input>
-            <label htmlFor="trueButton">Complete</label>
-            <input
-              type="checkbox"
-              id="isCompleted"
-              onClick={handleCompletedBtn}
-            ></input>
+      <div className="flex">
+        <Card
+          className="width"
+          inverse
+          style={{
+            backgroundColor: "#333",
+            border: "2px solid black"
+          }}
+        >
+          <CardBody>
+            <form>
+              <fieldset>
+                <div className="createTaskFormContainer">
+                  <FormGroup>
+                    <Label htmlFor="taskName">Task Name</Label>
+                    <Input
+                      type="text"
+                      onChange={handleFieldChange}
+                      id="taskName"
+                      placeholder="Task Name"
+                    ></Input>
+                  </FormGroup>
+                  <FormGroup>
+                    <Label htmlFor="taskDate">Expected Completion Date</Label>
+                    <Input
+                      type="date"
+                      onChange={handleFieldChange}
+                      id="completionDate"
+                      // placeholder="Completion Date"
+                    ></Input>
+                  </FormGroup>
 
-            <button disabled={isLoading} onClick={constructNewLocation}>
-              Submit
-            </button>
-          </div>
-        </fieldset>
-      </form>
+                  <Button
+                    disabled={isLoading}
+                    onClick={constructNewLocation}
+                    color="success"
+                    className="padding2"
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </fieldset>
+            </form>
+          </CardBody>
+        </Card>
+      </div>
     </>
   );
 };
