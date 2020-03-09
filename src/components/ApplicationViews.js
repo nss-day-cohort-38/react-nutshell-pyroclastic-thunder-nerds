@@ -62,7 +62,7 @@ const ApplicationView = (props) => {
         {/* TODO: Add edit and details */}
         {/* one thing you could do for a 'details' component is show which person created the task when details btn is clicked */}
         <Route exact path="/tasks" render={props => {
-            return <TaskList />
+            return <TaskList {...props} />
         }}/>
         <Route path="/tasks/new" render={props => {
             return <TaskForm {...props} />

@@ -11,6 +11,11 @@ const TaskList = props => {
     TasksManager.getAll().then(tasks => setTasks(tasks));
   };
 
+  const deleteTask = id => {
+    TasksManager.delete(id).then(() => {
+      TasksManager.getAll().then(setTasks);
+    });
+  };
   // on first page load invokes function that will get all tasks and update state
   useEffect(() => {
     getTasks();
@@ -26,7 +31,7 @@ const TaskList = props => {
         </div>
         <div className="taskContainer">
           {tasks.map(task => (
-            <TaskCard key={task.id} task={task} />
+            <TaskCard key={task.id} task={task} deleteTask={deleteTask} />
           ))}
         </div>
       </div>

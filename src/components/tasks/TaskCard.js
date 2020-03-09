@@ -4,7 +4,6 @@ import "./Tasks.css";
 import TasksManager from "../../modules/TasksManager";
 
 const TaskCard = props => {
-
   const [task, setTask] = useState({
     taskName: props.task.taskName,
     completionDate: props.task.completionDate,
@@ -12,20 +11,19 @@ const TaskCard = props => {
   });
 
   // TODO: On checkbox click should change isCompleted from false to true (right now need to click then unclick.....)
+  // it works on the edit form but I think that's more straightforward bc you click a btn to trigger it...
   const handleCompletedButton = evt => {
     const stateToChange = { ...task };
     stateToChange[evt.target.id] = !task.isCompleted;
-    console.log(`Before setTask updates state: ${task.isCompleted}`)
+    console.log(`Before setTask updates state: ${task.isCompleted}`);
     setTask(stateToChange);
     // OK, so task.isCompleted is still false here after setTask runs.....
-    console.log(`After setTask updates state: ${task.isCompleted}`)
+    console.log(`After setTask updates state: ${task.isCompleted}`);
 
-    // ROADBLOCK: so the update call is working, but for some reason I have to click on and then click off before I can see the 
+    // ROADBLOCK: so the update call is working, but for some reason I have to click on and then click off before I can see the
     // isComplete: false -> isComplete: true
-    TasksManager.update(task, props.task.id)
+    TasksManager.update(task, props.task.id);
   };
-
-
 
   return (
     <div className="taskCardContainer">
@@ -42,6 +40,9 @@ const TaskCard = props => {
       <Link to={`tasks/${props.task.id}/edit`}>
         <button>Edit Task</button>
       </Link>
+      <button type="button" onClick={() => props.deleteTask(props.task.id)}>
+        Delete Task
+      </button>
     </div>
   );
 };

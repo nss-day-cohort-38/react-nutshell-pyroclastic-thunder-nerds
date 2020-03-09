@@ -16,6 +16,14 @@ export default {
       body: JSON.stringify(newTask)
     });
   },
+  delete(taskId) {
+    return fetch(`${remoteURL}/tasks/${taskId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+  },
   update(updatedTask, taskId) {
     return fetch(`${remoteURL}/tasks/${taskId}`, {
       method: "PUT",
