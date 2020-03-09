@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import EventCard from "./EventCard";
 import EventManager from "../../modules/EventsManager"
+import "./Event.css"
+import { Button } from 'reactstrap'
 
 const EventList = props => {
     const [events, setEvents] = useState([]);
@@ -22,8 +24,8 @@ const EventList = props => {
 
     return (
         <>
-        <section className="event-section-content">
-            <button type="button" onClick={() => { props.history.push("/events/new") }}>Add Event</button>
+        <section className="flex">
+            <Button color="primary" className="btn1" type="button" onClick={() => { props.history.push("/events/new") }}>Add Event</Button>
         </section>
 
         <div className="event-cards-container">
