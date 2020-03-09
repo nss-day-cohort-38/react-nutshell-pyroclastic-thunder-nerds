@@ -66,6 +66,7 @@ const ApplicationView = (props) => {
         <Route path="/tasks/:taskId(\d+)/edit" render={props => {
             return <TaskEditForm {...props} />
         }}/>
+        
         {/* <Route path="/friends" render={props => {
             return <FriendList />
         }}/> */}
