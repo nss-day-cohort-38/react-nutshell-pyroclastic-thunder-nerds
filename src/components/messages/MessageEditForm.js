@@ -48,16 +48,7 @@ const MessageEditForm = props => {
               id="message"
               value={message.message}
             />
-{/* 
-            <label htmlFor="timestamp">timestamp will go here👇</label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="timestamp"
-              value={message.timestamp}
-            /> */}
+
           </div>
           <div className="alignRight">
             <button
