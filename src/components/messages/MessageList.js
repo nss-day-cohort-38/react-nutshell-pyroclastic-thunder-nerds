@@ -4,9 +4,7 @@ import MessageManager from '../../modules/MessagesManager';
 import '../messages/MessageList.css'
 
 const MessageList = (props) => {
-    const [messages, setMessages] = useState([]);
-    console.log("messages", messages);
-    
+    const [messages, setMessages] = useState([]);    
 
     const getMessages = () => {
         return MessageManager.getAll().then(messagesFromAPI => {
