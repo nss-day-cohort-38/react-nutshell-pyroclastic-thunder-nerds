@@ -4,33 +4,30 @@ import "./Tasks.css";
 import TasksManager from "../../modules/TasksManager";
 
 const TaskCard = props => {
+
   const [task, setTask] = useState({
     taskName: props.task.taskName,
     completionDate: props.task.completionDate,
     isCompleted: false
   });
 
-  // Changing isCompleted boolean property in state when checkbox clicked, then hopefully updating existing data with new isCompleted val
+  // TODO: On checkbox click should change isCompleted from false to true (right now need to click then unclick.....)
   const handleCompletedButton = evt => {
     const stateToChange = { ...task };
     stateToChange[evt.target.id] = !task.isCompleted;
+    console.log(`Before setTask updates state: ${task.isCompleted}`)
     setTask(stateToChange);
+    // OK, so task.isCompleted is still false here after setTask runs.....
+    console.log(`After setTask updates state: ${task.isCompleted}`)
 
-    const editedTask = {
-      id: props.task.id,
-      taskName: task.taskName,
-      completionDate: task.completionDate,
-      isCompleted: task.isCompleted
-    };
-
-    // hopefully will get the updated task state obj
-    TasksManager.update(editedTask, props.task.id)
+    // ROADBLOCK: so the update call is working, but for some reason I have to click on and then click off before I can see the 
+    // isComplete: false -> isComplete: true
+    TasksManager.update(task, props.task.id)
   };
 
 
 
   return (
-    // Now need to figure out / draw out the layout of the user interface for 'Tasks' page
     <div className="taskCardContainer">
       <h4>Task Name:</h4>
       <p>{props.task.taskName}</p>

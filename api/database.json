@@ -36,10 +36,10 @@
   ],
   "tasks": [
     {
-      "id": 1,
       "taskName": "Wash Dishes",
       "completionDate": "2020-03-07",
-      "isCompleted": false
+      "isCompleted": false,
+      "id": 1
     },
     {
       "id": 2,
