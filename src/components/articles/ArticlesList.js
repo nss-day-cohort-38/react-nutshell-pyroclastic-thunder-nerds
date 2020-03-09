@@ -31,7 +31,6 @@ const ArticleList = (props) => {
                 }}>Add New Article
                 </Button>
             </section>
-            {console.log("articles list")}
             <div>
                 {articles.map(article => (
                     <ArticleCard 
