@@ -17,7 +17,11 @@
         }
     ],
     "events": [
+<<<<<<< HEAD
        {
+=======
+        {
+>>>>>>> master
             "eventName": "event",
             "date": "2020-05-05T14:01",
             "eventLocation": "everywhere",
