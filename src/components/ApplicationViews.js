@@ -64,8 +64,7 @@ const ApplicationView = (props) => {
             return <ArticleDetail articleId={parseInt(props.match.params.articleId)} {...props} />
         }}/>
 
-        {/* Tasks */}
-        {/* one thing you could do for a 'details' component is show which person created the task when details btn is clicked */}
+        {/* TASKS */}
         <Route exact path="/tasks" render={props => {
             return <TaskList {...props} />
         }}/>
