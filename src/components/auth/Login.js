@@ -16,23 +16,25 @@ const Login = (props) => {
 
      const handleLogin = (evt) => {
         evt.preventDefault()
-        console.log(props.activeUserId)
         if (credentials.email === "" || credentials.password === "") {
             window.alert("Please input a username and password")
         } else {
             LoginManager.getAll().then(users => {
-                if (users.some(user => user.email === credentials.email)) {
+                if (users.find(user => user.email === credentials.email) && users.find(user => user.password === credentials.password)) {
+                    const userId = users.find(user => user.email === credentials.email)
+
                     sessionStorage.setItem(
-                        "credentials", 
-                        JSON.stringify(credentials)
+                        "Active Id", 
+                        JSON.stringify(userId.id)
                     )
                     props.history.push("/home")
+
+                    
                 } else {
-                    window.alert("Invalid email")
+                    window.alert("Invalid email or password.")
                 }
             })   
         }
-         
      }
 
      return (
