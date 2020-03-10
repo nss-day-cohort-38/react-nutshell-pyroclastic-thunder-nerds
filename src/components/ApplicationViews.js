@@ -1,5 +1,11 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
+
+// Tasks
+import TaskList from "./tasks/TaskList";
+import TaskForm from "./tasks/TaskForm";
+import TaskEditForm from "./tasks/TaskEditForm";
+
 // Messages //
 import MessageList from "./messages/MessageList";
 import MessagesForm from "./messages/MessageForm";
@@ -60,6 +66,17 @@ const ApplicationView = (props) => {
             return <ArticleDetail articleId={parseInt(props.match.params.articleId)} {...props} />
         }}/>
 
+        {/* TASKS */}
+        <Route exact path="/tasks" render={props => {
+            return <TaskList {...props} />
+        }}/>
+        <Route path="/tasks/new" render={props => {
+            return <TaskForm {...props} />
+        }}/>
+        <Route path="/tasks/:taskId(\d+)/edit" render={props => {
+            return <TaskEditForm {...props} />
+        }}/>
+
         {/* MESSAGES */}
         {/* needs to have exact path so it would re-render the new info */}
         <Route exact path="/messages" render={props => {
@@ -71,9 +88,8 @@ const ApplicationView = (props) => {
         <Route path="/messages/:messageId(\d+)/edit" render={props => {
             return <MessageEditForm {...props} />
         }}/>
-        {/* <Route path="/tasks" render={props => {
-            return <TaskList />
-        }}/> */}
+
+        {/* FRIENDS */}
         {/* <Route path="/friends" render={props => {
             return <FriendList />
         }}/> */}
