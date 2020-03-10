@@ -2,7 +2,6 @@
     "users": [
         {
             "id": 1,
-            "username": "username",
             "email": "email@email.com",
             "password": "password"
         }
@@ -18,12 +17,13 @@
         }
     ],
     "events": [
-        {
-            "id": 1,
-            "eventName": "event name",
-            "date": "Fri Jun 22 2018 10:54:33",
-            "location": "123 Main St.",
-            "userId": 1
+       {
+            "eventName": "event",
+            "date": "2020-05-05T14:01",
+            "eventLocation": "everywhere",
+            "parsedDate": 1588705260000,
+            "userId": 1,
+            "id": 1
         }
     ],
     "messages": [
