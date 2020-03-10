@@ -16,7 +16,6 @@ import ArticleEditForm from "./articles/ArticlesEditForm"
 import ArticleDetail from "./articles/ArticlesDetail"
 // Register & Login
 import Register from "./auth/Register"
-import Login from "./auth/Login"
 
 const ApplicationView = (props) => {
 
