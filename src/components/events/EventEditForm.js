@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import EventManager from "../../modules/EventsManager";
+import "./Event.css";
+import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
 
 const EventEditForm = props => {
-    const [event, setEvent] = useState({ eventName: "", date: "" });
+    const [event, setEvent] = useState({ eventName: "", date: "", eventLocation: "" });
     const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
@@ -35,33 +37,50 @@ const EventEditForm = props => {
 
     return (
         <>
-        <form>
+        <form className="flex">
+        <Card className="width" inverse style={{backgroundColor: '#333', borderColor: 'green', border: '2px solid black'}}>
+        <CardBody>
             <fieldset>
                 <div className="editForm">
-                    <input 
+                    <FormGroup>
+                    <Input 
                     type="text"
                     required
                     onChange={handleFieldChange}
                     value={event.eventName}
                     id="eventName"
                     />
-                    <label>Event Name</label>
-
-                    <input
+                    <Label htmlFor="eventName">Event Name</Label>
+                    </FormGroup>
+                    <FormGroup>
+                    <Input
                     type="datetime-local"
                     required
                     onChange={handleFieldChange}
                     value={event.date}
                     id="date" 
                     />
-                    <label>Date</label>
+                    <Label htmlFor="date">Date</Label>
+                    </FormGroup>
+                    <FormGroup>
+                    <Input
+                    type="text"
+                    required
+                    onChange={handleFieldChange}
+                    value={event.eventLocation}
+                    id="eventLocation" 
+                    />
+                    <Label htmlFor="eventLocation">Location</Label>
+                    </FormGroup>
                 </div>
-                <button
+                <Button
                 type="button"
                 disabled={isLoading}
                 onClick={updateExistingEvent}
-                >Submit</button>
+                >Submit</Button>
             </fieldset>
+            </CardBody>
+            </Card>
         </form>
         </>
     )
