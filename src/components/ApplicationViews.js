@@ -1,6 +1,5 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
-import Login from "./auth/Login"
 // Messages //
 import MessageList from "./messages/MessageList";
 import MessagesForm from "./messages/MessageForm";
@@ -16,14 +15,17 @@ import ArticleEditForm from "./articles/ArticlesEditForm"
 import ArticleDetail from "./articles/ArticlesDetail"
 // Register & Login
 import Register from "./auth/Register"
+import Login from "./auth/Login"
+// Home
+import Home from "./home/Home"
 
 const ApplicationView = (props) => {
 
     return (
         <>
-        {/* <Route exact path="/home" render={props => {
+        <Route exact path="/home" render={props => {
             return <Home />
-        }}/> */}
+        }}/>
         <Route path="/login" render={props => {
             return <Login { ...props } />
         }}/>
