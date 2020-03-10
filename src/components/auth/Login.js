@@ -4,7 +4,6 @@ import "./Login.css"
 import { Link } from "react-router-dom"
 import LoginManager from "../../modules/LoginManager"
 
-
 const Login = (props) => {
     const [credentials, setCredentials] = useState({email: "", password: ""})
     const [isLoading, setIsLoading] = useState(false)
@@ -17,7 +16,7 @@ const Login = (props) => {
 
      const handleLogin = (evt) => {
         evt.preventDefault()
-
+        console.log(props.activeUserId)
         if (credentials.email === "" || credentials.password === "") {
             window.alert("Please input a username and password")
         } else {
@@ -63,5 +62,5 @@ const Login = (props) => {
 
 }
 
-export default Login
+export default Login 
 
