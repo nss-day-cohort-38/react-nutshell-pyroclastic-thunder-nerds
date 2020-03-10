@@ -1,6 +1,5 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
-import Home from "../components/welcome/Welcome";
 // Messages //
 import MessageList from "./messages/MessageList";
 import MessagesForm from "./messages/MessageForm";
@@ -17,6 +16,8 @@ import ArticleDetail from "./articles/ArticlesDetail"
 // Register & Login
 import Register from "./auth/Register"
 import Login from "./auth/Login"
+// Home
+import Home from "./home/Home"
 
 const ApplicationView = (props) => {
     const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
@@ -26,7 +27,7 @@ const ApplicationView = (props) => {
         <Route exact path="/home" render={props => {
             return <Home />
         }}/>
-        <Route path="/login" component={props => {
+        <Route path="/login" render={props => {
             return <Login { ...props } />
         }}/>
         <Route path="/register" render={props => {

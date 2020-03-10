@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ArticleManager from "../../modules/ArticlesManager";
-import {FormGroup, Label, Input, Card, CardText, CardBody, CardTitle, Button } from 'reactstrap'
+import { Card, CardBody, Button } from 'reactstrap'
 import './ArticlesCard.css'
 
 const ArticleDetail = props => {
