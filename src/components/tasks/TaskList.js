@@ -4,8 +4,6 @@ import TaskCard from "./TaskCard";
 import { Link } from "react-router-dom";
 import {Button} from "reactstrap"
 
-// TODO: redirect user on submit btn after edit, change link to task name rather than label
-
 const TaskList = props => {
   const [tasks, setTasks] = useState([]);
 

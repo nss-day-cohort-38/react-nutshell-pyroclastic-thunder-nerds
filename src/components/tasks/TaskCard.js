@@ -32,12 +32,12 @@ const TaskCard = props => {
         }}
       >
         <CardBody>
-          <Link className="taskName" to={`tasks/${props.task.id}/edit`}>
             <p>
               <strong>Task Name:</strong>
             </p>
+          <Link className="taskName" to={`tasks/${props.task.id}/edit`}>
+          <p className="taskName">{props.task.taskName}</p>
           </Link>
-          <p>{props.task.taskName}</p>
           <p>
             <strong>Expected Completion Date:</strong>
           </p>

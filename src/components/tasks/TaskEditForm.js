@@ -31,8 +31,10 @@ const TaskEditForm = props => {
   const updateExistingTask = evt => {
     setIsLoading(true);
 
-    TasksManager.update(task, props.match.params.taskId).then(
+    TasksManager.update(task, props.match.params.taskId).then(() => {
       setIsLoading(false)
+      props.history.push("/tasks")
+    }
     );
   };
 
