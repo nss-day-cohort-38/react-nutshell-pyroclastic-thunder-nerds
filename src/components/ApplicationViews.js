@@ -11,14 +11,16 @@ import ArticleDetail from "./articles/ArticlesDetail"
 // Register & Login
 import Register from "./auth/Register"
 import Login from "./auth/Login"
+// Home
+import Home from "./home/Home"
 
 const ApplicationView = (props) => {
 
     return (
         <>
-        {/* <Route exact path="/home" render={props => {
+        <Route exact path="/home" render={props => {
             return <Home />
-        }}/> */}
+        }}/>
         <Route path="/login" render={props => {
             return <Login { ...props } />
         }}/>

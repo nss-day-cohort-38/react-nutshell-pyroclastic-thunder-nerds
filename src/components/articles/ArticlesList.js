@@ -31,7 +31,7 @@ const ArticleList = (props) => {
                 }}>Add New Article
                 </Button>
             </section>
-            <div>
+            <div className="colReverse">
                 {articles.map(article => (
                     <ArticleCard 
                         key={article.id}
