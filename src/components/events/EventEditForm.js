@@ -4,7 +4,7 @@ import "./Event.css";
 import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
 
 const EventEditForm = props => {
-    const [event, setEvent] = useState({ eventName: "", date: "", eventLocation: "" });
+    const [event, setEvent] = useState({ eventName: "", date: "", eventLocation: "", parsedDate: "" });
     const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
@@ -21,7 +21,8 @@ const EventEditForm = props => {
             id: props.match.params.eventId,
             eventName: event.eventName,
             date: event.date,
-            eventLocation: event.eventLocation
+            eventLocation: event.eventLocation,
+            parsedDate: Date.parse(event.date)
         };
 
         EventManager.update(editedEvent)
