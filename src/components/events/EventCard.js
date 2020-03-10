@@ -9,8 +9,8 @@ const eventDate = props.event.date
 const eventTime = props.event.date
 
     return (
-        <div className="flex">
-            <Card className="width" inverse style={{backgroundColor: '#333', borderColor: 'green', border: '2px solid black'}}>
+        <section className="flex">
+            <Card className="width card" inverse style={{backgroundColor: '#333', borderColor: 'green', border: '2px solid black'}}>
             <CardBody>
             <div className="eventCard-content">
                 <CardTitle><h3>{props.event.eventName}</h3></CardTitle>
@@ -24,7 +24,7 @@ const eventTime = props.event.date
             </div>
             </CardBody>
             </Card>
-        </div>
+        </section>
     )
 }
 
