@@ -33,7 +33,7 @@ const EventList = props => {
             <Button color="primary" className="btn1" type="button" onClick={() => { props.history.push("/events/new") }}>Add Event</Button>
         </section>
 
-        <div className="event-cards-container">
+        <div className="event-cards-container flex">
             {sortedEvents.map(event =>
                 <EventCard
                     key={event.id}

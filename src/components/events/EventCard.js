@@ -8,9 +8,13 @@ const EventCard = props => {
 const eventDate = props.event.date
 const eventTime = props.event.date
 
+
+
     return (
-        <section className="flex">
-            <Card className="width card" inverse style={{backgroundColor: '#333', borderColor: 'green', border: '2px solid black'}}>
+        
+            <div className="eventCard">
+            <div className="flex">
+            
             <CardBody>
             <div className="eventCard-content">
                 <CardTitle><h3>{props.event.eventName}</h3></CardTitle>
@@ -23,8 +27,10 @@ const eventTime = props.event.date
                 onClick={() => props.deleteEvent(props.event.id)}>Remove Event</Button>
             </div>
             </CardBody>
-            </Card>
-        </section>
+            
+            </div>
+            </div>
+        
     )
 }
 
