@@ -4,6 +4,7 @@ import ApplicationView from './components/ApplicationViews';
 import './Nutshell.css';
 
 function Nutshell() {
+
   return (
     <>
       <NavBar />

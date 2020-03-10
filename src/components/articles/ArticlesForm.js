@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstra
 import './ArticlesCard.css'
 
 const ArticlesForm = props => {
-    const [article, setArticle] = useState({title: "", synopsis: "", url: "", timestamp: ""})
+    const [article, setArticle] = useState({title: "", synopsis: "", url: "", timestamp: "", userId: ""})
     const [isLoading, setIsLoading] = useState(false)
 
     const handleFieldChange = evt => {
@@ -27,6 +27,7 @@ const ArticlesForm = props => {
             const newArticle = {...article}
             const stamp = new Date()
             newArticle.timestamp = stamp.toLocaleString()
+            newArticle.userId = 
             setIsLoading(true)
             ArticleManager.post(newArticle)
                 .then(() => props.history.push("/articles"))

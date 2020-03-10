@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import ArticleCard from "./ArticlesCard"
 import ArticleManager from "../../modules/ArticlesManager"
 import { Button } from 'reactstrap'
+import LoginManager from '../../modules/LoginManager'
 import './ArticlesList.css'
 
 const ArticleList = (props) => {
@@ -31,7 +32,7 @@ const ArticleList = (props) => {
                 }}>Add New Article
                 </Button>
             </section>
-            <div>
+            <div className="colReverse">
                 {articles.map(article => (
                     <ArticleCard 
                         key={article.id}
