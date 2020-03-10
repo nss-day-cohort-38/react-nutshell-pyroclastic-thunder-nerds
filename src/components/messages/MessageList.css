@@ -1,3 +1,9 @@
+.section-content {
+  display: flex;
+  justify-content: center;
+  width: 80;
+}
+
 .message-container-cards {
     display: flex;
     flex-direction: column-reverse;
@@ -14,9 +20,13 @@
     padding: .5em;
     border-radius: 2px;
     margin: .1em;
-    width: 100%;
+    width: 80%;
   }
   
   .section-content button:hover {
-    background-color: darkblue;
+    background-color: rgb(79, 122, 202);
   } 
+
+  div.flex {
+    padding-left: 0;
+  }

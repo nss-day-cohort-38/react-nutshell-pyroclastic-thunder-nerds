@@ -1,6 +1,6 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
-import Login from "./auth/Login"
+import Home from "../components/welcome/Welcome";
 // Messages //
 import MessageList from "./messages/MessageList";
 import MessagesForm from "./messages/MessageForm";
@@ -16,15 +16,17 @@ import ArticleEditForm from "./articles/ArticlesEditForm"
 import ArticleDetail from "./articles/ArticlesDetail"
 // Register & Login
 import Register from "./auth/Register"
+import Login from "./auth/Login"
 
 const ApplicationView = (props) => {
+    const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
     return (
         <>
-        {/* <Route exact path="/home" render={props => {
+        <Route exact path="/home" render={props => {
             return <Home />
-        }}/> */}
-        <Route path="/login" render={props => {
+        }}/>
+        <Route path="/login" component={props => {
             return <Login { ...props } />
         }}/>
         <Route path="/register" render={props => {
@@ -59,7 +61,7 @@ const ApplicationView = (props) => {
         }}/>
 
         {/* MESSAGES */}
-        {/* needs to have exact path so it would re-render the new info */}
+        {/* needs to have exact path so it will re-render the new info */}
         <Route exact path="/messages" render={props => {
             return <MessageList {...props} />
         }}/>
