@@ -10,17 +10,18 @@ const TaskList = props => {
   // gets all tasks and adds them to 'tasks' array as updated state
   // TODO: One thing I tried to do was filter through all tasks for tasks whose isComplete is false and then set only those tasks to
   // state... Then this component returns a node list of only those tasks to the DOM.
-
-  // Wondering if it's bc setTasks is asynchronous it's rendering the JSX before line 20 runs...
+  // Wondering if it's bc setTasks is asynchronous.. JSX renders before line 20 runs...
   const getTasks = () => {
     TasksManager.getAll().then(tasks => {
-      tasks.filter(task => {
-        if (task.isCompleted === false) {
-          console.log(task)
-          // setTasks(task).then(TasksManager.getAll())
-          console.log("tasks have been set!")
-        } 
-      })
+      // tasks.filter(task => {
+      //   if (task.isCompleted === false) {
+      //     console.log(task)
+      //     // setTasks(task).then(TasksManager.getAll())
+      //     console.log("tasks have been set!")
+      //   } 
+      // })
+
+      setTasks(tasks)
     })
 
     
@@ -33,17 +34,15 @@ const TaskList = props => {
   };
   // on first page load invokes function that will get all tasks and update state
   useEffect(() => {
-    console.log("invoking getTasks on first render")
     getTasks();
   }, []);
 
   return (
     <React.Fragment>
-    {console.log("rendering the JSX!")}
       <div className="taskSectionContainer">
         <div className="taskButtonContainer">
           <Link to="/tasks/new">
-            <Button type="button" color="primary">Create a Task</Button>
+            <Button type="button" className="btn1" color="primary">Create a Task</Button>
           </Link>
         </div>
         <div className="taskContainer">

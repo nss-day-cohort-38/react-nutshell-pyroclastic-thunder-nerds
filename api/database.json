@@ -41,22 +41,22 @@
   ],
   "tasks": [
     {
-      "taskName": "WASH DISHES",
+      "taskName": "Wash Dishes",
       "completionDate": "2020-03-09",
       "isCompleted": false,
       "id": 1
-    },
-    {
-      "taskName": "Walk Dog",
-      "completionDate": "2020-03-07",
-      "isCompleted": false,
-      "id": 2
     },
     {
       "taskName": "Try to Walk the Cat...",
       "completionDate": "2020-03-09",
       "isCompleted": false,
       "id": 3
+    },
+    {
+      "taskName": "Walk Dog",
+      "completionDate": "2020-03-11",
+      "isCompleted": false,
+      "id": 4
     }
   ],
   "friends": [
