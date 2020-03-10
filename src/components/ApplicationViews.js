@@ -6,6 +6,12 @@ import TaskList from "./tasks/TaskList";
 import TaskForm from "./tasks/TaskForm";
 import TaskEditForm from "./tasks/TaskEditForm";
 // Events
+import Login from "./auth/Login"
+// Messages //
+import MessageList from "./messages/MessageList";
+import MessagesForm from "./messages/MessageForm";
+import MessageEditForm from "./messages/MessageEditForm";
+// Events //
 import EventList from "./events/EventList"
 import EventForm from "./events/EventForm"
 import EventEditForm from "./events/EventEditForm"
@@ -16,7 +22,6 @@ import ArticleEditForm from "./articles/ArticlesEditForm"
 import ArticleDetail from "./articles/ArticlesDetail"
 // Register & Login
 import Register from "./auth/Register"
-import Login from "./auth/Login"
 
 const ApplicationView = (props) => {
 
@@ -44,6 +49,8 @@ const ApplicationView = (props) => {
             render={props => {
                 return <EventEditForm { ...props } />
             }} />
+
+        {/* ARTICLES */}
         <Route exact path="/articles" render={props => {
             return <ArticlesList {...props}/>
         }}/>
@@ -56,9 +63,6 @@ const ApplicationView = (props) => {
         <Route exact path="/articles/:articleId(\d+)" render={props => {
             return <ArticleDetail articleId={parseInt(props.match.params.articleId)} {...props} />
         }}/>
-        {/* <Route path="/messages" render={props => {
-            return <MessageList />
-        }}/> */}
 
         {/* Tasks */}
         {/* one thing you could do for a 'details' component is show which person created the task when details btn is clicked */}
@@ -71,7 +75,20 @@ const ApplicationView = (props) => {
         <Route path="/tasks/:taskId(\d+)/edit" render={props => {
             return <TaskEditForm {...props} />
         }}/>
-        
+
+        {/* MESSAGES */}
+        {/* needs to have exact path so it would re-render the new info */}
+        <Route exact path="/messages" render={props => {
+            return <MessageList {...props} />
+        }}/>
+        <Route path="/messages/new" render={props => {
+            return <MessagesForm {...props}/>
+        }}/>
+        <Route path="/messages/:messageId(\d+)/edit" render={props => {
+            return <MessageEditForm {...props} />
+        }}/>
+
+        {/* FRIENDS */}
         {/* <Route path="/friends" render={props => {
             return <FriendList />
         }}/> */}
