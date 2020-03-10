@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import EventManager from "../../modules/EventsManager";
+import "./Event.css";
+import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
 
 const EventForm = props => {
-    const [event, setEvent] = useState({ eventName: "", date: "" });
+    const [event, setEvent] = useState({ eventName: "", date: "", eventLocation: "", parsedDate: "" });
     const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
@@ -13,10 +15,11 @@ const EventForm = props => {
 
     const constructNewEvent = evt => {
         evt.preventDefault();
-        if (event.eventName === "" || event.date === "" ) {
-            window.alert("Please input an event name and date");
+        if (event.eventName === "" || event.date === "" || event.eventLocation === "" ) {
+            window.alert("Please fill in all fields.");
         } else {
             setIsLoading(true);
+            event.parsedDate = Date.parse(event.date)
             EventManager.post(event)
                 .then(() => props.history.push("/events"));
         }
@@ -24,35 +27,53 @@ const EventForm = props => {
 
     return (
         <>
-            <form>
+            <form className="flex">
+            <Card className="width" inverse style={{backgroundColor: '#333', borderColor: 'green', border: '2px solid black'}}>
+            <CardBody>
                 <fieldset>
                     <div className="newEventInputFields">
-                        <input
+                        <FormGroup>
+                        <Input
                         type="text"
                         required
                         onChange={handleFieldChange}
                         id="eventName"
                         placeholder="Event Name" 
                         />
-                        <label htmlFor="eventName">Event Name</label>
-
-                        <input
+                        <Label htmlFor="eventName">Event Name</Label>
+                        </FormGroup>
+                        <FormGroup>
+                        <Input
                         type="datetime-local"
                         required
                         onChange={handleFieldChange}
                         id="date"
                         placeholder="Event Date" />
-                        <label>Date</label>
+                        <Label>Date</Label>
+                        </FormGroup>
+                        <FormGroup>
+                        <Input
+                        type="text"
+                        required
+                        onChange={handleFieldChange}
+                        id="eventLocation"
+                        placeholder="Event Location"
+                        />
+                        <Label htmlFor="eventLocation">Event Location</Label>
+                        </FormGroup>
 
                     </div>
                     <div className="newEventButton">
-                        <button
+                        <Button
+                            color="primary"
                             type="button"
                             disabled={isLoading}
                             onClick={constructNewEvent}
-                        >Submit</button>
+                        >Submit</Button>
                     </div>
                 </fieldset>
+                </CardBody>
+                </Card>
             </form>
         </>
     );

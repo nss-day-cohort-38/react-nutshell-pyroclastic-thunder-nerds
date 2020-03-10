@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import EventCard from "./EventCard";
 import EventManager from "../../modules/EventsManager"
+import "./Event.css"
+import { Button } from 'reactstrap'
+
 
 const EventList = props => {
     const [events, setEvents] = useState([]);
@@ -15,19 +18,23 @@ const EventList = props => {
         EventManager.delete(id)
             .then(() => EventManager.getAll().then(setEvents));
     };
+ 
+        useEffect(() => {
+            getEvents();
+        }, []);
 
-    useEffect(() => {
-        getEvents();
-    }, []);
+    const sortedEvents = events.sort(function (a, b) {
+        return a.parsedDate - b.parsedDate
+    })
 
     return (
         <>
-        <section className="event-section-content">
-            <button type="button" onClick={() => { props.history.push("/events/new") }}>Add Event</button>
+        <section className="flex">
+            <Button color="primary" className="btn1" type="button" onClick={() => { props.history.push("/events/new") }}>Add Event</Button>
         </section>
 
-        <div className="event-cards-container">
-            {events.map(event =>
+        <div className="event-cards-container flex">
+            {sortedEvents.map(event =>
                 <EventCard
                     key={event.id}
                     event={event}
