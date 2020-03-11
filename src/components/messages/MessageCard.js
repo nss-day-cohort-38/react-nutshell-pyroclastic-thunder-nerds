@@ -1,39 +1,24 @@
 import React from "react";
-import "./Message.css";
+import { Card, CardBody, CardTitle, Button } from "reactstrap";
+// import "./Message.css";
 
-// Use of Date.now() function 
-
-  
-// Converting the number of millisecond in date string 
-
-
-// Printing the current date                     
-  
-// const milliseconds = Date(Date.now()); 
-// dateTime = milliseconds.toString()
-// document.write(dateTime) 
 
 const MessageCard = (props) => {
     return (
-        <div className="message-card">
-      <div className="message-card-content">
-        <h3>Message: <span className="card-message">
-            {props.message.message}
-        </span></h3>
-        <p>{props.message.timestamp}</p>
-
-        <button type="button" onClick={() => 
-        props.history.push(`/messages/${props.message.id}/edit`)}>
-            Edit
-        </button>
-
-        <button type="button" onClick={() => 
-        props.deleteMessage(props.message.id)}>
-            Delete
-        </button>
-      </div>
-    </div>
-  );
+        <div className="flex">
+            <Card className="width" inverse style={{ backgroundColor: '#333', borderColor: 'green', border: '2px solid black' }}>
+                <CardBody>
+                    <CardTitle><strong></strong><span>{props.message.message}</span></CardTitle>
+                    <p>{props.message.timestamp}</p>
+                    <Button className="padding2" color="success" type="button" onClick={() => {
+                        props.history.push(`/messages/${props.message.id}/edit`)
+                    }}>
+                        Edit
+                    </Button>
+                </CardBody>
+            </Card>
+        </div>
+    );
 }
 
 export default MessageCard

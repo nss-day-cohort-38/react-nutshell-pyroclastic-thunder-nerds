@@ -7,11 +7,6 @@ export default {
   getAll() {
     return fetch(`${remoteURL}/messages`).then(result => result.json())
   },
-  delete(id) {
-    return fetch(`${remoteURL}/messages/${id}`, {
-      method: "DELETE"
-    }).then(result => result.json())
-  },
   post(newMessage) {
     return fetch(`${remoteURL}/messages`, {
         method: "POST",
@@ -30,15 +25,4 @@ export default {
       body: JSON.stringify(editedMessage)
     }).then(data => data.json());
   }
-// getRandomId() {
-//   return fetch(`${remoteURL}/messages`)
-//     .then(result => result.json())
-//     .then(messages => {
-//       const randomIndex = Math.floor(Math.random() * messages.length);
-//       console.log("randomIndex:", randomIndex)
-//       const randomMessage = messages[randomIndex];
-//       console.log("randomMessage:", randomMessage)
-//       return randomMessage.id;
-//     });
-//   }
 }

@@ -47,14 +47,14 @@
 
   .padding2 {
     margin: 0 0 0 10px;
-}
+  }
 
-.message-card {
+  .flex {
     width: auto;
     display: flex;
     justify-content: center;
-}
+  }
 
-.width {
+  .width {
     width: 80%;
-}
+  }
