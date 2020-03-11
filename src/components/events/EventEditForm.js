@@ -22,7 +22,8 @@ const EventEditForm = props => {
             eventName: event.eventName,
             date: event.date,
             eventLocation: event.eventLocation,
-            parsedDate: Date.parse(event.date)
+            parsedDate: Date.parse(event.date),
+            userId: event.userId
         };
 
         EventManager.update(editedEvent)
