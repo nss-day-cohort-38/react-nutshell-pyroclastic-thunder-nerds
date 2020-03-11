@@ -4,8 +4,10 @@ import "./Event.css";
 import { Button, Form, FormGroup, Label, Input, Card, CardBody } from 'reactstrap';
 
 const EventForm = props => {
-    const [event, setEvent] = useState({ eventName: "", date: "", eventLocation: "", parsedDate: "" });
+    const [event, setEvent] = useState({ eventName: "", date: "", eventLocation: "", parsedDate: "", userId: "" });
     const [isLoading, setIsLoading] = useState(false);
+
+    const currentUserId = parseInt(sessionStorage.getItem("Active Id"))
 
     const handleFieldChange = evt => {
         const stateToChange = { ...event };
@@ -20,6 +22,7 @@ const EventForm = props => {
         } else {
             setIsLoading(true);
             event.parsedDate = Date.parse(event.date)
+            event.userId = currentUserId
             EventManager.post(event)
                 .then(() => props.history.push("/events"));
         }
