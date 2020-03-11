@@ -5,7 +5,7 @@ export default {
         return fetch(`${remoteUrl}/articles/${id}`).then(resp => resp.json())
     },
     getAll() {
-        return fetch(`${remoteUrl}/articles`).then(resp => resp.json())
+        return fetch(`${remoteUrl}/articles?userId=${parseInt(sessionStorage.getItem("Active Id"))}`).then(resp => resp.json())
     },
     post(newArticle) {
         return fetch(`${remoteUrl}/articles`, {
