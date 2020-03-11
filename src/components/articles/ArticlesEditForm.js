@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input, Card, CardBody } from "reactstra
 import './ArticlesCard.css'
 
 const ArticleEditForm = props => {
-  const [article, setArticle] = useState({ title: "", synopsis: "", url: "" });
+  const [article, setArticle] = useState({ title: "", synopsis: "", url: "", userId: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -27,7 +27,8 @@ const ArticleEditForm = props => {
       title: article.title,
       synopsis: article.synopsis,
       url: article.url,
-      timestamp: stamp.toLocaleString()
+      timestamp: stamp.toLocaleString(),
+      userId: parseInt(sessionStorage.getItem("Active Id"))
     };
 
     ArticleManager.update(editedArticle).then(() =>
