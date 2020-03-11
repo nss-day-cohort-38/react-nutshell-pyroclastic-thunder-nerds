@@ -8,7 +8,8 @@ const TaskCard = props => {
   const [task, setTask] = useState({
     taskName: props.task.taskName,
     completionDate: props.task.completionDate,
-    isCompleted: false
+    isCompleted: false,
+    userId: props.task.userId
   });
 
   const handleCompletedButton = evt => {
@@ -18,9 +19,7 @@ const TaskCard = props => {
 
     // setTask is asynchronous, needed to pass in value differently than by using initial 'task' state before setTask ran.
     TasksManager.update(stateToChange, props.task.id).then(() => {
-      if (task.isCompleted) {
-        // TODO: how do I clear this card from DOM here?...
-      }
+      props.getTasks()
     });
   };
 
