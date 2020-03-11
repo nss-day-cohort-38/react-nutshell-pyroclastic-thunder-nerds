@@ -4,6 +4,10 @@ import { Card, CardBody, CardTitle, Button } from "reactstrap";
 
 
 const MessageCard = (props) => {
+    const activeUser = parseInt(sessionStorage.getItem("Active Id"))
+   
+    if (activeUser === props.message.userId) {
+    
     return (
         <div className="flex">
             <Card className="width" inverse style={{ backgroundColor: '#333', borderColor: 'green', border: '2px solid black' }}>
@@ -19,6 +23,18 @@ const MessageCard = (props) => {
             </Card>
         </div>
     );
+    } else {
+        return (
+            <div className="flex">
+                <Card className="width" inverse style={{ backgroundColor: '#333', borderColor: 'green', border: '2px solid black' }}>
+                    <CardBody>
+                        <CardTitle><strong></strong><span>{props.message.message}</span></CardTitle>
+                        <p>{props.message.timestamp}</p>
+                    </CardBody>
+                </Card>
+            </div>
+        );
+    }
 }
 
 export default MessageCard

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MessageManager from "../../modules/MessagesManager";
+import { Card, Button, Input } from 'reactstrap'
 // import "./MessageForm.css"
 
 const MessageEditForm = props => {
@@ -19,7 +20,8 @@ const MessageEditForm = props => {
     const editedMessage = {
       id: props.match.params.messageId,
       message: message.message,
-      timestamp: message.timestamp
+      timestamp: message.timestamp,
+      userId: message.userId
     };
 
     MessageManager.update(editedMessage)
@@ -36,11 +38,13 @@ const MessageEditForm = props => {
 
   return (
     <>
+      <div className="flex">
+      <Card className="width" inverse style={{ backgroundColor: '#333', borderColor: 'green', border: '2px solid black' }}>
       <form>
         <fieldset>
           <div className="formgrid">
             <label htmlFor="message">Message👇</label>
-            <input
+            <Input
               type="text"
               required
               className="form-control"
@@ -51,14 +55,17 @@ const MessageEditForm = props => {
 
           </div>
           <div className="alignRight">
-            <button
+            <Button
+            color="primary"
               type="button" disabled={isLoading}
               onClick={updateExistingMessage}
               className="btn btn-primary"
-            >Submit</button>
+            >Submit</Button>
           </div>
         </fieldset>
       </form>
+      </Card>
+      </div>
     </>
   );
 }

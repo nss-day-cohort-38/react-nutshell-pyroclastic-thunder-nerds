@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MessageManager from '../../modules/MessagesManager';
-// import './MessageForm.css'
+import { Card, Input, Button } from 'reactstrap'
+import './MessageForm.css'
 
 const MessageForm = props => {
   const [message, setMessage] = useState({ message: "" });
@@ -25,6 +26,7 @@ const MessageForm = props => {
       const newMessage = {
         message: message.message,
         timestamp: stamp.toLocaleString(),
+        userId: parseInt(sessionStorage.getItem("Active Id"))
       }
       MessageManager.post(newMessage)
         .then(() => props.history.push("/messages"));
@@ -33,10 +35,12 @@ const MessageForm = props => {
 
   return (
     <>
+    <div className="flex">
+    <Card className="width" inverse style={{backgroundColor: '#333', borderColor: 'green', border: '2px solid black'}}>
       <form>
         <fieldset>
           <div className="formgrid">
-            <input
+            <Input
               type="text"
               required
               onChange={handleFieldChange}
@@ -47,14 +51,17 @@ const MessageForm = props => {
           </div>
           
           <div className="alignRight">
-            <button
+            <Button
+              color="info"
               type="button"
               disabled={isLoading}
               onClick={constructNewMessage}
-            >Post</button>
+            >Post</Button>
           </div>
         </fieldset>
       </form>
+      </Card>
+      </div>
     </>
   );
 };

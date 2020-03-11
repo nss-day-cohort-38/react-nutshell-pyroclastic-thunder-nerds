@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import MessageCard from './MessageCard';
 import MessageManager from '../../modules/MessagesManager';
+import { Button } from 'reactstrap'
 import '../messages/MessageList.css'
 
 const MessageList = (props) => {
@@ -24,11 +25,12 @@ const MessageList = (props) => {
   return (
     <>
     <section className="section-content">
-      <button type="button"
-      className="btn"
+      <Button type="button"
+      color="primary"
+      className="btn3"
       onClick={() => {props.history.push("/messages/new")}}>
       New Message
-      </button>
+      </Button>
     </section>
     
     {/* vvv Pulls in Card to display in List vvv */}
