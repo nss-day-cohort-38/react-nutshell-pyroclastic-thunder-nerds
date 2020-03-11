@@ -1,3 +1,4 @@
+/* Card containers */
 .taskCardContainer {
     margin-bottom: 20px;
     padding-bottom: 10px;
@@ -10,22 +11,28 @@
     display: flex;
     justify-content: center;
 }
+/* Delete button */
 .padding2 {
     margin: 0 0 0 10px;
 }
+/* Card Checkbox label & input */
 .checkbox {
     display: inline-block;
     padding-right: 10px;
 }
+/* Edit Checkbox label */
 .checkbox--complete {
     margin-right: 30px;
 }
-.taskName:hover {
-    text-decoration: none;
-}
+/* Card task name */
 .taskName {
     color: #fafafa;
 }
+.taskName:hover {
+    text-decoration: none;
+    color: #15B2E6;
+}
+/* Task list 'create task' button */
 .taskButtonContainer {
     width: auto;
     display: flex;
@@ -34,7 +41,4 @@
 }
 .btn1 {
     box-shadow: 0px 0px 25px #333; 
- }
- .taskName:hover {
-    color: #15B2E6;
  }
