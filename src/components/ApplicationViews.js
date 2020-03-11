@@ -26,7 +26,7 @@ import Login from "./auth/Login"
 import Home from "./home/Home"
 
 const ApplicationView = (props) => {
-
+    
     return (
         <>
         <Route exact path="/home" render={props => {

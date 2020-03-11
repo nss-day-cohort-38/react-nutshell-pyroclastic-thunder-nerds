@@ -2,7 +2,7 @@ const baseURL = "http://localhost:5002"
 
 export default {
     getAll() {
-        return fetch(`${baseURL}/events`).then(response => response.json())
+        return fetch(`${baseURL}/events?userId=${parseInt(sessionStorage.getItem("Active Id"))}`).then(response => response.json())
     },
     post(newEvent) {
         return fetch(`${baseURL}/events`, {
