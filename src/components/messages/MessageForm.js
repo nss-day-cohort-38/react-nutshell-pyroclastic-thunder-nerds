@@ -25,6 +25,7 @@ const MessageForm = props => {
       const newMessage = {
         message: message.message,
         timestamp: stamp.toLocaleString(),
+        userId: parseInt(sessionStorage.getItem("Active Id"))
       }
       MessageManager.post(newMessage)
         .then(() => props.history.push("/messages"));
