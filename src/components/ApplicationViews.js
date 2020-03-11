@@ -26,7 +26,7 @@ import Login from "./auth/Login"
 import Home from "./home/Home"
 
 const ApplicationView = (props) => {
-    const activeUser = sessionStorage.getItem("Active Id")
+    
     return (
         <>
         <Route exact path="/home" render={props => {
@@ -42,103 +42,77 @@ const ApplicationView = (props) => {
             return <Welcome />
         }}/> */}
         <Route exact path="/events" render={props => {
-            if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+        
             return <EventList { ...props }/>
-            }
+            
         }}/>
         <Route path="/events/new" render={props => {
-            if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+           
             return <EventForm { ...props }/>
-            }
+            
         }}/>
         <Route path="/events/:eventId(\d+)/edit"
             render={props => {
-                if (activeUser === null) {
-                    return <Redirect to="/login" />
-                } else {
+               
                 return <EventEditForm { ...props } />
-                }
+                
             }} />
 
         {/* ARTICLES */}
         <Route exact path="/articles" render={props => {
-             if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+            
             return <ArticlesList {...props}/>
-            }
+            
         }}/>
         <Route path="/articles/new" render={props => {
-             if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+            
             return <ArticlesForm {...props}/>
-            }
+            
         }}/>
         <Route path="/articles/:articleId(\d+)/edit" render={props => {
-             if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+             
             return <ArticleEditForm {...props} />
-            }
+            
         }}/>
         <Route exact path="/articles/:articleId(\d+)" render={props => {
-             if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+             
             return <ArticleDetail articleId={parseInt(props.match.params.articleId)} {...props} />
-            }
+            
         }}/>
 
         {/* TASKS */}
         <Route exact path="/tasks" render={props => {
-             if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+             
             return <TaskList {...props} />
-            }
+            
         }}/>
         <Route path="/tasks/new" render={props => {
-             if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+           
             return <TaskForm {...props} />
-            }
+            
         }}/>
         <Route path="/tasks/:taskId(\d+)/edit" render={props => {
-             if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+            
             return <TaskEditForm {...props} />
-            }
+            
         }}/>
 
         {/* MESSAGES */}
         {/* needs to have exact path so it would re-render the new info */}
         <Route exact path="/messages" render={props => {
-             if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+             
             return <MessageList {...props} />
-            }
+            
         }}/>
         <Route path="/messages/new" render={props => {
-             if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+             
             return <MessagesForm {...props}/>
-            }
+            
         }}/>
         <Route path="/messages/:messageId(\d+)/edit" render={props => {
-             if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
+             
             return <MessageEditForm {...props} />
-            }
+            
         }}/>
 
         {/* FRIENDS */}
