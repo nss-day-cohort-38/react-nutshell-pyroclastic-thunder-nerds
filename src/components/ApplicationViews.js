@@ -98,7 +98,7 @@ const ApplicationView = (props) => {
         }}/>
 
         {/* MESSAGES */}
-        {/* needs to have exact path so it would re-render the new info */}
+        {/* needs to have exact path so it will re-render the new info */}
         <Route exact path="/messages" render={props => {
              
             return <MessageList {...props} />

@@ -31,6 +31,7 @@ const MessageList = (props) => {
       </button>
     </section>
     
+    {/* vvv Pulls in Card to display in List vvv */}
     <div className="message-container-cards">
       {messages.map(message =>
         <MessageCard

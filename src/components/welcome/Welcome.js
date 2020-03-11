@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import "../welcome/Welcome.css"
 
 const Welcome = () => {
     return (
