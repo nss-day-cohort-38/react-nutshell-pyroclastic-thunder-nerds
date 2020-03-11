@@ -76,6 +76,7 @@ const EventEditForm = props => {
                     </FormGroup>
                 </div>
                 <Button
+                color="primary"
                 type="button"
                 disabled={isLoading}
                 onClick={updateExistingEvent}
