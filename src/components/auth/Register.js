@@ -50,17 +50,6 @@ const Register = (props) => {
                     })
                 })
                 }
-                
-    
-
-                // sessionStorage.setItem(
-                //     "credentials", 
-                //     JSON.stringify(credentials)
-                // )
-    
-                // RegisterManager.post(newUser)
-                // .then(() => props.history.push("/home"))
-                // }
             })    
         }
     }
