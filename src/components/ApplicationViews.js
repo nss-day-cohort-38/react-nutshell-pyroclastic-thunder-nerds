@@ -30,11 +30,7 @@ const ApplicationView = (props) => {
     return (
         <>
         <Route exact path="/home" render={props => {
-            if (activeUser === null) {
-                return <Redirect to="/login" />
-            } else {
-            return <Home />
-            }
+            return <Home /> 
         }}/>
         <Route path="/login" render={props => {
             return <Login { ...props } />
