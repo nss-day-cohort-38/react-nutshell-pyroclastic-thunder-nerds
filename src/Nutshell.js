@@ -4,13 +4,15 @@ import ApplicationView from './components/ApplicationViews';
 import './Nutshell.css';
 
 function Nutshell() {
+const activeUser = sessionStorage.getItem("Active Id")
 
-  return (
-    <>
-      <NavBar />
-      <ApplicationView />
-    </>
-  );
+      return (
+        <>
+          <NavBar />
+          <ApplicationView />
+        </>
+      );
+
 }
 
 export default Nutshell;

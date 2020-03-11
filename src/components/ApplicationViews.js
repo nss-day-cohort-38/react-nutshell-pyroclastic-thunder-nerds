@@ -26,8 +26,7 @@ import Login from "./auth/Login"
 import Home from "./home/Home"
 
 const ApplicationView = (props) => {
-    const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
-
+    
     return (
         <>
         <Route exact path="/home" render={props => {

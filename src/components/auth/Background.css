@@ -1,0 +1,14 @@
+body {
+    background-image: url(https://lh3.googleusercontent.com/proxy/42T4iBE6OqSllg2VDxI0PjwgMtleYi-sehoXOMP1rd7iOopWI_-YDBkO5qIFI_1rNGvuy7zrzzB0yrl_w45vPRC4qrHjhykd04R3710Cx132Ll6rlT_rgsOzoGnSpLLj4rc);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center top;
+    z-index: -1;
+}

@@ -16,9 +16,12 @@ const TaskCard = props => {
     stateToChange[evt.target.id] = !task.isCompleted;
     setTask(stateToChange);
 
-    // Soo, setTask is asynchronous so when I was passing 'task' state in below it was passing in the initial state before state updated
-    // via setTask, so all I needed to do was pass in a different argument (stateToChange) that contained the new value...!!
-    TasksManager.update(stateToChange, props.task.id);
+    // setTask is asynchronous, needed to pass in value differently than by using initial 'task' state before setTask ran.
+    TasksManager.update(stateToChange, props.task.id).then(() => {
+      if (task.isCompleted) {
+        // TODO: how do I clear this card from DOM here?...
+      }
+    });
   };
 
   return (

@@ -7,7 +7,7 @@ import { Button } from 'reactstrap'
 
 const EventList = props => {
     const [events, setEvents] = useState([]);
-
+    
     const getEvents = () => {
         return EventManager.getAll().then(apiEvents => {
             setEvents(apiEvents)
