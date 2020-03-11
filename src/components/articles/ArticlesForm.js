@@ -27,7 +27,8 @@ const ArticlesForm = props => {
             const newArticle = {...article}
             const stamp = new Date()
             newArticle.timestamp = stamp.toLocaleString()
-            newArticle.userId = 
+            newArticle.userId = parseInt(sessionStorage.getItem("Active Id"))
+            console.log(newArticle)
             setIsLoading(true)
             ArticleManager.post(newArticle)
                 .then(() => props.history.push("/articles"))
