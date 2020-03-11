@@ -8,7 +8,8 @@ const TaskForm = props => {
   const [task, setTask] = useState({
     taskName: "",
     completionDate: "",
-    isCompleted: false
+    isCompleted: false,
+    userId: ""
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,8 +37,10 @@ const TaskForm = props => {
     ) {
       window.alert("Please fill in all fields");
     } else {
+      const newTask = {...task}
+      newTask.userId = parseInt(sessionStorage.getItem("Active Id"))
       setIsLoading(true);
-      TasksManager.post(task).then(() => props.history.push("/tasks"));
+      TasksManager.post(newTask).then(() => props.history.push("/tasks"));
     }
   };
 
