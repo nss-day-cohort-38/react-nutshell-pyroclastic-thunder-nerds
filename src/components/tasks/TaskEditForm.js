@@ -9,7 +9,8 @@ const TaskEditForm = props => {
   const [task, setTask] = useState({
     taskName: "",
     completionDate: "",
-    isCompleted: false
+    isCompleted: false,
+    userId: ""
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,7 +32,10 @@ const TaskEditForm = props => {
   const updateExistingTask = evt => {
     setIsLoading(true);
 
-    TasksManager.update(task, props.match.params.taskId).then(() => {
+    const updatedUser = {...task} 
+    updatedUser.userId = parseInt(sessionStorage.getItem("Active Id"))
+
+    TasksManager.update(updatedUser, props.match.params.taskId).then(() => {
       setIsLoading(false)
       props.history.push("/tasks")
     }
