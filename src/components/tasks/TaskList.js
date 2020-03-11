@@ -7,23 +7,16 @@ import {Button} from "reactstrap"
 const TaskList = props => {
   const [tasks, setTasks] = useState([]);
 
-  // TODO: One thing I tried to do was filter through all tasks for tasks whose isComplete is false and then set only those tasks to
-  // state... Then this component returns a node list of only those tasks to the DOM.
-  // Wondering if it's bc setTasks is asynchronous.. JSX renders before line 20 runs...
+  // TODO: Need to write conditional to render only tasks from DB whose isCompleted is false
   const getTasks = () => {
     TasksManager.getAll().then(tasksFromApi => {
-      // tasks.filter(task => {
-      //   if (task.isCompleted === false) {
-      //     console.log(task)
-      //     // setTasks(task).then(TasksManager.getAll())
-      //     console.log("tasks have been set!")
-      //   } 
-      // })
-
-      setTasks(tasksFromApi)
+      const filteredTasks = tasksFromApi.filter(task => {
+        if (task.isCompleted === false) {
+          return task
+        }
+      })
+      setTasks(filteredTasks)
     })
-
-    
   };
 
   const deleteTask = id => {
@@ -46,7 +39,7 @@ const TaskList = props => {
         </div>
         <div className="taskContainer">
           {tasks.map(task => (
-            <TaskCard key={task.id} task={task} deleteTask={deleteTask} />
+            <TaskCard key={task.id} task={task} getTasks={getTasks} deleteTask={deleteTask} />
           ))}
         </div>
       </div>
