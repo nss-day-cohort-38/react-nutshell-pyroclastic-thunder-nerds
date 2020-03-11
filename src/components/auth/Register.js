@@ -25,8 +25,9 @@ const Register = (props) => {
         } else if (credentials.password !== credentials.confirmPassword) {
             window.alert("Passwords do not match.")
         } else {
+            // checks if email that user entered in field (credentials) matches email in the DB
             LoginManager.getAll().then(users => {
-                if (users.some(user => user.email === credentials.email)) {
+                if (users.find(user => user.email === credentials.email)) {
                     window.alert("This email already exists.")
                 } else {
                 const newUser = {
@@ -34,15 +35,32 @@ const Register = (props) => {
                     password: credentials.password
                 }
                 setIsLoading(true)
-                sessionStorage.setItem(
-                    "credentials", 
-                    JSON.stringify(credentials)
-                )
-                props.history.push("/home")
-    
+
                 RegisterManager.post(newUser)
-                .then(() => props.history.push("/home"))
+                .then(() => {
+                    RegisterManager.getAll().then(users => {
+                        const activeUser = users.find(user => user.email === newUser.email)
+
+                        sessionStorage.setItem(
+                            "Active Id", 
+                            JSON.stringify(activeUser.id)
+                        )
+
+                        props.history.push("/home")
+                    })
+                })
                 }
+                
+    
+
+                // sessionStorage.setItem(
+                //     "credentials", 
+                //     JSON.stringify(credentials)
+                // )
+    
+                // RegisterManager.post(newUser)
+                // .then(() => props.history.push("/home"))
+                // }
             })    
         }
     }
@@ -67,7 +85,7 @@ const Register = (props) => {
                     <Input onChange={handleFieldChange} type="password" id="confirmPassword" 
                     placeholder="Confirm Password" required=""></Input>
                 </div>
-                <Button className="margin" color="success" type="submit">Register</Button>
+                <Button className="margin" color="success" type="submit" disabled={isLoading} >Register</Button>
             </fieldset>
         </form>
         </Card>

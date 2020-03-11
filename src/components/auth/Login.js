@@ -6,26 +6,27 @@ import LoginManager from "../../modules/LoginManager"
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({email: "", password: ""})
-    const [isLoading, setIsLoading] = useState(false)
 
     const handleFieldChange = (evt) => {
         const stateToChange = { ...credentials }
         stateToChange[evt.target.id] = evt.target.value
         setCredentials(stateToChange)
      }
-
+     // Runs on submit button click
      const handleLogin = (evt) => {
         evt.preventDefault()
         if (credentials.email === "" || credentials.password === "") {
             window.alert("Please input a username and password")
         } else {
+            // Checks if the credentials entered by user in input fields matches any user objects in the DB, if so then saves that 
+            // user's id to sessionStorage and redirects back to home page.
             LoginManager.getAll().then(users => {
-                if (users.find(user => user.email === credentials.email) && users.find(user => user.password === credentials.password)) {
-                    const userId = users.find(user => user.email === credentials.email)
+                if (users.find(user => user.email === credentials.email) && users.find(user => user.password === credentials.password)) {                    
+                    const user = users.find(user => user.email === credentials.email)
 
                     sessionStorage.setItem(
                         "Active Id", 
-                        JSON.stringify(userId.id)
+                        JSON.stringify(user.id)
                     )
                     props.history.push("/home")
 
